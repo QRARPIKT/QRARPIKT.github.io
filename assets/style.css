@@ -1,0 +1,110 @@
+/* Qラピカ文库 · 文库本风格 */
+:root{
+  --bg:#faf7f0; --paper:#fffdf8; --ink:#2b2b28; --ink-soft:#6b675f;
+  --line:#e4ddd0; --accent:#8a4b38; --accent-soft:#b08a7c;
+  --font-size:17px; --measure:38em;
+}
+html[data-theme="night"]{
+  --bg:#1c1a17; --paper:#26231f; --ink:#d8d2c6; --ink-soft:#9a927f;
+  --line:#3a352d; --accent:#c98a70; --accent-soft:#8a6552;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:var(--font-size)}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"Source Han Serif SC","Noto Serif SC","Songti SC","SimSun",serif;
+  line-height:2; letter-spacing:.02em;
+  transition:background .3s,color .3s;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* 头部 */
+header.site{
+  max-width:var(--measure); margin:0 auto; padding:3rem 1.2rem 2rem;
+  border-bottom:1px solid var(--line);
+}
+header.site .pen{font-size:1.6rem; letter-spacing:.15em}
+header.site .pen small{display:block;font-size:.75rem;color:var(--ink-soft);letter-spacing:.3em;margin-top:.4rem}
+nav.breadcrumb{font-size:.8rem;color:var(--ink-soft);margin-bottom:.6rem}
+nav.breadcrumb a{color:var(--ink-soft)}
+
+/* 布局 */
+main{max-width:var(--measure); margin:0 auto; padding:2.5rem 1.2rem 5rem}
+footer{max-width:var(--measure); margin:0 auto; padding:2rem 1.2rem 3rem;
+  border-top:1px solid var(--line); font-size:.78rem; color:var(--ink-soft)}
+
+/* 首页作品卡 */
+.work-card{
+  display:block; background:var(--paper); border:1px solid var(--line);
+  padding:2rem 1.8rem; margin-bottom:1.5rem;
+}
+.work-card:hover{text-decoration:none; border-color:var(--accent-soft)}
+.work-card h2{font-size:1.25rem; letter-spacing:.1em}
+.work-card .meta{font-size:.78rem; color:var(--ink-soft); margin:.5rem 0 .8rem}
+.work-card p{font-size:.9rem; color:var(--ink-soft); line-height:1.9}
+
+/* 作品页 */
+.work-head{text-align:center; margin-bottom:3rem}
+.work-head h1{font-size:1.8rem; letter-spacing:.2em; margin-bottom:.6rem}
+.work-head .meta{font-size:.8rem; color:var(--ink-soft)}
+.section-label{font-size:.8rem; letter-spacing:.3em; color:var(--accent);
+  margin:2.5rem 0 1rem; border-bottom:1px solid var(--line); padding-bottom:.5rem}
+.chapter-list{list-style:none}
+.chapter-list li{border-bottom:1px solid var(--line)}
+.chapter-list a{display:flex; justify-content:space-between; align-items:baseline;
+  padding:.85rem .2rem; color:var(--ink)}
+.chapter-list a:hover{color:var(--accent); text-decoration:none}
+.chapter-list .no{font-size:.75rem; color:var(--ink-soft)}
+
+/* 警告块 */
+.warn{
+  border:1px solid var(--accent-soft); background:var(--paper);
+  padding:1.2rem 1.4rem; margin:1.5rem 0; font-size:.85rem; line-height:1.9;
+}
+.warn strong{color:var(--accent); letter-spacing:.2em}
+
+/* 阅读页 */
+.reader-tools{
+  position:fixed; top:0; left:0; right:0; z-index:20;
+  display:flex; justify-content:center; gap:1.2rem; align-items:center;
+  background:var(--bg); border-bottom:1px solid var(--line);
+  padding:.55rem 1rem; font-size:.8rem;
+}
+.reader-tools button{
+  font:inherit; color:var(--ink-soft); background:none;
+  border:1px solid var(--line); padding:.15rem .7rem; cursor:pointer;
+}
+.reader-tools button:hover{color:var(--accent); border-color:var(--accent-soft)}
+article.chapter{padding-top:2.5rem}
+article.chapter h1{
+  font-size:1.35rem; text-align:center; letter-spacing:.15em; margin-bottom:2.5rem;
+}
+article.chapter p{margin-bottom:1.1em; text-indent:2em; text-align:justify}
+article.chapter hr{border:none; text-align:center; margin:2em 0; color:var(--ink-soft)}
+article.chapter hr::after{content:"＊ ＊ ＊"; letter-spacing:.5em}
+.pager{display:flex; justify-content:space-between; margin-top:3.5rem;
+  border-top:1px solid var(--line); padding-top:1.2rem; font-size:.85rem}
+
+/* 目录抽屉 */
+#toc-drawer{
+  position:fixed; top:0; right:-280px; width:280px; height:100%; z-index:30;
+  background:var(--paper); border-left:1px solid var(--line);
+  transition:right .25s; padding:3rem 1.5rem; overflow-y:auto; font-size:.9rem;
+}
+#toc-drawer.open{right:0}
+#toc-drawer a{display:block; padding:.45rem 0; color:var(--ink); border-bottom:1px solid var(--line)}
+#toc-drawer a:hover{color:var(--accent); text-decoration:none}
+#toc-drawer .close{position:absolute; top:.8rem; right:1rem; background:none;
+  border:none; font-size:1rem; cursor:pointer; color:var(--ink-soft)}
+
+/* 手记正文 */
+.notes h2{font-size:1.05rem; letter-spacing:.15em; margin:2.2rem 0 .8rem; color:var(--accent)}
+.notes p{margin-bottom:1em; text-indent:2em; text-align:justify; font-size:.95rem}
+.notes ul{margin:0 0 1em 2em; font-size:.9rem; color:var(--ink-soft)}
+.notes li{margin-bottom:.4em}
+
+@media (max-width:600px){
+  html{font-size:calc(var(--font-size) - 1px)}
+  header.site{padding-top:2rem}
+}
