@@ -47,3 +47,5 @@ article.chapter hr::after{content:"＊ ＊ ＊";letter-spacing:.5em}
 .notes ul{margin:0 0 1em 2em;font-size:.9rem;color:var(--ink-soft)}
 .notes li{margin-bottom:.4em}
 @media (max-width:600px){html{font-size:calc(var(--font-size) - 1px)}header.site{padding-top:2rem}}
+.songlist{background:var(--paper);border:1px solid var(--line);padding:1.2rem 1.6rem;margin:0 0 1.1em;line-height:2.2;font-size:.95rem}
+.worklog{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--accent-soft);padding:1.2rem 1.5rem;margin:1.8em 0;font-family:"SF Mono",Menlo,Consolas,"Courier New",monospace;font-size:.82rem;line-height:1.9;white-space:pre-wrap;word-break:break-word;color:var(--ink-soft)}
