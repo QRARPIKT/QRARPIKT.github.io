@@ -46,17 +46,7 @@ article.chapter hr::after{content:"＊ ＊ ＊";letter-spacing:.5em}
 .notes p{margin-bottom:1em;text-indent:2em;text-align:justify;font-size:.95rem}
 .notes ul{margin:0 0 1em 2em;font-size:.9rem;color:var(--ink-soft)}
 .notes li{margin-bottom:.4em}
-@media (max-width:600px){html{font-size:calc(var(--font-size) - 1px)}header.site{padding-top:2rem}}
 .songlist{background:var(--paper);border:1px solid var(--line);padding:1.2rem 1.6rem;margin:0 0 1.1em;line-height:2.2;font-size:.95rem}
+.epigraph{text-align:center;color:var(--ink-soft);margin:0 0 2.5em;font-size:.95rem;letter-spacing:.15em}
 .worklog{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--accent-soft);padding:1.2rem 1.5rem;margin:1.8em 0;font-family:"SF Mono",Menlo,Consolas,"Courier New",monospace;font-size:.82rem;line-height:1.9;white-space:pre-wrap;word-break:break-word;color:var(--ink-soft)}
-.table-scroll{overflow-x:auto;margin:1.2em 0;border:1px solid var(--line)}
-.table-scroll table{border-collapse:collapse;min-width:100%;font-size:.82rem;line-height:1.7;white-space:nowrap}
-.table-scroll th,.table-scroll td{padding:.45rem .8rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-.table-scroll th{background:var(--paper);color:var(--accent);letter-spacing:.1em;font-weight:normal}
-.table-scroll td:last-child,.table-scroll th:last-child{white-space:normal;min-width:12em}
-.notes blockquote{border-left:3px solid var(--accent-soft);background:var(--paper);padding:.9rem 1.2rem;margin:1.2em 0;font-size:.88rem;color:var(--ink-soft);line-height:1.9}
-.notes code{background:var(--paper);border:1px solid var(--line);padding:0 .35em;font-size:.88em;font-family:"SF Mono",Menlo,Consolas,monospace}
-.toc{border:1px solid var(--line);background:var(--paper);padding:1.2rem 1.5rem;margin:0 0 2.5rem;font-size:.88rem;line-height:2.2}
-.toc a{display:block;color:var(--ink)}
-.toc a:hover{color:var(--accent);text-decoration:none}
-.notes h3{font-size:.95rem;letter-spacing:.1em;margin:1.8rem 0 .6rem;color:var(--ink)}
+@media (max-width:600px){html{font-size:calc(var(--font-size) - 1px)}header.site{padding-top:2rem}}
