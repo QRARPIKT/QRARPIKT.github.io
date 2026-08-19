@@ -52,3 +52,16 @@ article.chapter h2.sec{text-align:center;font-size:1.05rem;letter-spacing:.3em;m
 .epigraph{text-align:center;color:var(--ink-soft);margin:0 0 2.5em;font-size:.95rem;letter-spacing:.15em}
 .worklog{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--accent-soft);padding:1.2rem 1.5rem;margin:1.8em 0;font-family:"SF Mono",Menlo,Consolas,"Courier New",monospace;font-size:.82rem;line-height:1.9;white-space:pre-wrap;word-break:break-word;color:var(--ink-soft)}
 @media (max-width:600px){html{font-size:calc(var(--font-size) - 1px)}header.site{padding-top:2rem}}
+
+/* === 表格 === */
+.table-scroll{overflow-x:auto;margin:1.4em 0}
+.table-scroll table{border-collapse:collapse;width:100%;font-size:.92em;line-height:1.7}
+.table-scroll th,.table-scroll td{border:1px solid #cfc8b8;padding:.45em .8em;text-align:left;vertical-align:top}
+.table-scroll thead th{background:#efe9db;font-weight:600;white-space:nowrap}
+.table-scroll tbody tr:nth-child(even){background:#faf7f0}
+
+/* === 电脑屏幕式表格（过拟合 ch10 名单） === */
+table.comp{border-collapse:collapse;width:100%;font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:.88em;line-height:1.65;background:#fdfdfb;box-shadow:0 1px 4px rgba(0,0,0,.12);border:1px solid #b9b3a4}
+table.comp th{background:#e8e4d8;border:1px solid #b9b3a4;padding:.4em .7em;text-align:left;font-weight:600;white-space:nowrap}
+table.comp td{border:1px solid #b9b3a4;padding:.35em .7em;text-align:left}
+table.comp tbody tr:nth-child(even){background:#f4f1e8}
