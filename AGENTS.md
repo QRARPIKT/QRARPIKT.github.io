@@ -61,6 +61,8 @@ python3 scripts/build_site.py --book-dir incoming/{book-id} --site-dir . \
 
 ## 人工领地（文案）
 
+- 首页已分「长篇 / 短篇 / 习作 / 手记」四区；`build_site.py` 新插入的书卡落在 `<!--CARDS-->` 处（习作区末尾），须人工移入对应分区。
+- 手记页 `journal/index.html` 是用户自己的心路历程随笔，属人工领地，内容由用户维护。
 - 首页书卡（短版）与作品页简介（长版）是两个独立文案，用户给哪段贴哪段，不要互相推导。
 - 交付包里的 intro.md 只进 archive 存档，**不自动上页**（有过 intro 回归废弃设定的前科）。
 - 字数 meta（如"约12.2万字"）不会自动更新；正文大改后提醒用户是否改 meta。
