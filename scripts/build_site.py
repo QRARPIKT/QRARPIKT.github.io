@@ -45,14 +45,14 @@ footer{max-width:var(--measure);margin:0 auto;padding:2rem 1.2rem 3rem;border-to
 .work-card h2{font-size:1.25rem;letter-spacing:.1em}
 .work-card .meta{font-size:.78rem;color:var(--ink-soft);margin:.5rem 0 .8rem}
 .work-card p{font-size:.9rem;color:var(--ink-soft);line-height:1.9}
-.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
-.home-entry{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;aspect-ratio:1/1;background:var(--paper);border:1px solid var(--line);padding:1.6rem 1.8rem;transition:border-color .3s,box-shadow .3s,transform .3s}
-.home-entry:hover{text-decoration:none;border-color:var(--accent-soft);box-shadow:0 2px 12px rgba(0,0,0,.08);transform:translateY(-2px)}
-.home-entry h2{font-size:1.3rem;letter-spacing:.3em;margin-right:-.3em;transition:letter-spacing .3s,margin-right .3s}
-.home-entry:hover h2{letter-spacing:.45em;margin-right:-.45em}
-.home-entry p{font-size:.85rem;color:var(--ink-soft);line-height:1.9;margin-top:0;opacity:0;max-height:0;overflow:hidden;transition:opacity .4s ease,max-height .4s ease,margin-top .4s ease}
-.home-entry:hover p,.home-entry:focus-visible p{opacity:1;max-height:6em;margin-top:.8rem}
-@media (max-width:600px){.home-grid{grid-template-columns:1fr}.home-entry{aspect-ratio:auto;padding:1.4rem 1.6rem}.home-entry p{opacity:1;max-height:none;margin-top:.6rem}}
+.home-list{border-top:1px solid var(--line)}
+.home-entry{display:flex;justify-content:space-between;align-items:baseline;gap:2rem;padding:1.4rem .4rem;border-bottom:1px solid var(--line);color:var(--ink)}
+.home-entry:hover{text-decoration:none}
+.home-entry h2{font-size:1.15rem;letter-spacing:.25em;flex-shrink:0;transition:color .3s}
+.home-entry p{font-size:.82rem;color:var(--ink-soft);line-height:1.9;text-align:right;transition:color .3s}
+.home-entry:hover h2{color:var(--accent)}
+.home-entry:hover p{color:var(--ink)}
+@media (max-width:600px){.home-entry{flex-direction:column;gap:.2rem;padding:1.1rem .2rem}.home-entry p{text-align:left}}
 .work-head{text-align:center;margin-bottom:3rem}
 .work-head h1{font-size:1.8rem;letter-spacing:.2em;margin-bottom:.6rem}
 .work-head .meta{font-size:.8rem;color:var(--ink-soft)}
