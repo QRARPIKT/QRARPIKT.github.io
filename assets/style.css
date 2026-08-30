@@ -26,7 +26,7 @@ footer{max-width:var(--measure);margin:0 auto;padding:2rem 1.2rem 3rem;border-to
 .home-entry h2{font-size:1.3rem;letter-spacing:.3em}
 .home-entry p{font-size:.85rem;color:var(--ink-soft);line-height:1.9;margin-top:0;opacity:0;max-height:0;overflow:hidden;transition:opacity .4s ease,max-height .4s ease,margin-top .4s ease}
 .home-entry:hover p,.home-entry:focus-visible p{opacity:1;max-height:5em;margin-top:.4rem}
-@media (max-width:600px){.home-entry p{opacity:1;max-height:none;margin-top:.4rem}.home-entry .num{font-size:3.2rem}}
+@media (max-width:600px){.home-entry p{opacity:1;max-height:none;margin-top:.4rem}.home-entry .num{font-size:3.2rem;top:.6rem;transform:none}}
 .work-head{text-align:center;margin-bottom:3rem}
 .work-head h1{font-size:1.8rem;letter-spacing:.2em;margin-bottom:.6rem}
 .work-head .meta{font-size:.8rem;color:var(--ink-soft)}
