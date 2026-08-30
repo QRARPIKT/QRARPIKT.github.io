@@ -11,8 +11,8 @@
 用法（在本仓库根目录执行）:
     python3 scripts/build_site.py --book-dir incoming/<book-id> --site-dir . \
         --book-id proof-read --title "校　样" \
-        --meta "本格推理中篇 · 全十三章 · 约4.3万字 · 2026" \
-        --blurb "一句话引子（首页作品卡）"
+        --meta "本格推理短篇 · 全十三章 · 约4.3万字 · 2026" \
+        --blurb "一句话引子（分类页作品卡）" --section exercise
 
 行为:
  1. 拆分 chapters/ → works/<book-id>/chNN.html（文库模板：工具栏/目录抽屉/上下章）
