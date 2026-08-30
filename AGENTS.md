@@ -50,7 +50,7 @@ python3 scripts/build_site.py --book-dir incoming/{book-id} --site-dir . \
 - `works/{book-id}/index.html`：章题或序号体系一变，手动重写 `<ul class="chapter-list">` 目录。
 - `works/{book-id}/notes.html`：保留页首 warn 泄底警告块，正文由 notes.md 重新注入（`## ` → h2）。
 - `works/overfitting/handbook.html`（仅过拟合）：由 documents/二读手册.md 重新生成前，先清掉页首残留的 blockquote 警告块，只保留一条。
-- 首页 `index.html` 书卡、`assets/style.css` / `reader.js`：人工领地，脚本不会动；style.css 若有手工改动，顺手同步 `scripts/build_site.py` 里的 STYLE 常量（两者已验证字节级一致）。
+- 首页 `index.html` 四入口、`assets/style.css` / `reader.js`：人工领地，脚本不会动；style.css 若有手工改动，顺手同步 `scripts/build_site.py` 里的 STYLE 常量（两者已验证字节级一致），**并把五个顶层页面（`index.html`、`long/`、`short/`、`exercise/`、`journal/`）css 链接里的 `?v=` 日期改为当天**，强制浏览器刷新缓存（Safari 激进缓存旧 css 已有前科）。
 
 **第 4 步：archive 抽验**
 
