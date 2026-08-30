@@ -63,7 +63,7 @@ python3 scripts/build_site.py --book-dir incoming/{book-id} --site-dir . \
 ## 人工领地（文案）
 
 - 首页为四入口页（长篇→`long/`、短篇→`short/`、习作→`exercise/`、手记→`journal/`），本身不放作品卡；书卡归属各分类页，脚本按 `--section` 插入对应分类页末尾的 `<!--CARDS-->` 处。
-- 手记页 `journal/index.html` 是用户自己的心路历程随笔，属人工领地，内容由用户维护。
+- 手记页 `journal/index.html` 是用户自己的心路历程随笔，属人工领地，内容由用户维护。已挂自托管 KaTeX（`assets/katex/`）：行内公式 `$...$`、独立行 `$$...$$` 直接写在正文里即可，勿动页首的 katex 引入与尾部 renderMathInElement 配置。
 - 分类页书卡（短版）与作品页简介（长版）是两个独立文案，用户给哪段贴哪段，不要互相推导。
 - 交付包里的 intro.md 只进 archive 存档，**不自动上页**（有过 intro 回归废弃设定的前科）。
 - 字数 meta（如"约12.2万字"）不会自动更新；正文大改后提醒用户是否改 meta。

@@ -84,6 +84,14 @@ article.chapter hr::after{content:"＊ ＊ ＊";letter-spacing:.5em}
 .notes p{margin-bottom:1em;text-indent:2em;text-align:justify;font-size:.95rem}
 .notes ul{margin:0 0 1em 2em;font-size:.9rem;color:var(--ink-soft)}
 .notes li{margin-bottom:.4em}
+.notes h3{font-size:.95rem;letter-spacing:.1em;margin:1.8rem 0 .6rem;color:var(--ink)}
+.notes hr{border:none;border-top:1px solid var(--line);margin:2.2rem 0}
+.notes ol{margin:0 0 1em 2em;font-size:.9rem;color:var(--ink-soft)}
+.notes .aside{font-size:.72rem;opacity:.5;line-height:1.8}
+.notes .aside-table{font-size:.68rem;opacity:.55;border:1px dashed var(--line);padding:.9rem 1.1rem;margin:1.5rem 0;line-height:1.7;overflow-x:auto}
+.notes .aside-table table{border-collapse:collapse;width:100%}
+.notes .aside-table th,.notes .aside-table td{border:1px solid var(--line);padding:.35em .7em;text-align:left;vertical-align:top}
+.notes .katex-display{text-indent:0}
 .songlist{background:var(--paper);border:1px solid var(--line);padding:1.2rem 1.6rem;margin:0 0 1.1em;line-height:2.2;font-size:.95rem}
 article.chapter h2.sec{text-align:center;font-size:1.05rem;letter-spacing:.3em;margin:2.5em 0;color:var(--ink-soft)}
 .board{background:var(--paper);border:1px solid var(--line);padding:1.1rem 1.4rem;margin:1.5em 0;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.85rem;line-height:2;white-space:pre-wrap;word-break:break-word}
