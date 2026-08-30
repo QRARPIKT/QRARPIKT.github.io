@@ -45,10 +45,13 @@ footer{max-width:var(--measure);margin:0 auto;padding:2rem 1.2rem 3rem;border-to
 .work-card h2{font-size:1.25rem;letter-spacing:.1em}
 .work-card .meta{font-size:.78rem;color:var(--ink-soft);margin:.5rem 0 .8rem}
 .work-card p{font-size:.9rem;color:var(--ink-soft);line-height:1.9}
-.home-entry{display:block;background:var(--paper);border:1px solid var(--line);padding:1.6rem 1.8rem;margin-bottom:1.2rem}
-.home-entry:hover{text-decoration:none;border-color:var(--accent-soft)}
-.home-entry h2{font-size:1.3rem;letter-spacing:.3em}
-.home-entry p{font-size:.85rem;color:var(--ink-soft);margin-top:.4rem}
+.home-entry{display:block;background:var(--paper);border:1px solid var(--line);padding:1.6rem 1.8rem;margin-bottom:1.2rem;transition:border-color .3s,box-shadow .3s,transform .3s}
+.home-entry:hover{text-decoration:none;border-color:var(--accent-soft);box-shadow:0 2px 12px rgba(0,0,0,.08);transform:translateY(-2px)}
+.home-entry h2{font-size:1.3rem;letter-spacing:.3em;transition:letter-spacing .3s}
+.home-entry:hover h2{letter-spacing:.45em}
+.home-entry p{font-size:.85rem;color:var(--ink-soft);margin-top:0;opacity:0;max-height:0;overflow:hidden;transition:opacity .4s ease,max-height .4s ease,margin-top .4s ease}
+.home-entry:hover p,.home-entry:focus-visible p{opacity:1;max-height:5em;margin-top:.4rem}
+@media (hover:none){.home-entry p{opacity:1;max-height:none;margin-top:.4rem}}
 .work-head{text-align:center;margin-bottom:3rem}
 .work-head h1{font-size:1.8rem;letter-spacing:.2em;margin-bottom:.6rem}
 .work-head .meta{font-size:.8rem;color:var(--ink-soft)}
