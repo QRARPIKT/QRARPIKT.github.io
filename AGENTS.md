@@ -38,10 +38,11 @@
 
 ```bash
 python3 scripts/build_site.py --book-dir incoming/{book-id} --site-dir . \
-  --book-id {book-id} --title {书名}
+  --book-id {book-id} --title {书名} --section {long|short|exercise}
 ```
 
 - 章节页永远全量重生成；脚本同时把 documents/reviews/chapters/final 全量复制到 `archive/{book-id}/`。
+- `--section` 决定新书卡插入哪个分类页（`long/`长篇、`short/`短篇、`exercise/`习作，各自末尾有 `<!--CARDS-->` 标记）；缺省插首页，首页无标记则跳过并提示。
 - 重建后检查：章题 h1 正确、特殊块渲染（过拟合 ch10 的 `table class="comp"`、顾问记录 worklog 块、落语 epigraph 块、烧却告白 `## 一` 小节号）。
 
 **第 3 步：人工页手工处理（脚本 skip-if-exists，永不覆盖）**
@@ -61,9 +62,9 @@ python3 scripts/build_site.py --book-dir incoming/{book-id} --site-dir . \
 
 ## 人工领地（文案）
 
-- 首页已分「长篇 / 短篇 / 习作 / 手记」四区；`build_site.py` 新插入的书卡落在 `<!--CARDS-->` 处（习作区末尾），须人工移入对应分区。
+- 首页为四入口页（长篇→`long/`、短篇→`short/`、习作→`exercise/`、手记→`journal/`），本身不放作品卡；书卡归属各分类页，脚本按 `--section` 插入对应分类页末尾的 `<!--CARDS-->` 处。
 - 手记页 `journal/index.html` 是用户自己的心路历程随笔，属人工领地，内容由用户维护。
-- 首页书卡（短版）与作品页简介（长版）是两个独立文案，用户给哪段贴哪段，不要互相推导。
+- 分类页书卡（短版）与作品页简介（长版）是两个独立文案，用户给哪段贴哪段，不要互相推导。
 - 交付包里的 intro.md 只进 archive 存档，**不自动上页**（有过 intro 回归废弃设定的前科）。
 - 字数 meta（如"约12.2万字"）不会自动更新；正文大改后提醒用户是否改 meta。
 

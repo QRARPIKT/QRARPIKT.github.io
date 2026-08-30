@@ -45,6 +45,10 @@ footer{max-width:var(--measure);margin:0 auto;padding:2rem 1.2rem 3rem;border-to
 .work-card h2{font-size:1.25rem;letter-spacing:.1em}
 .work-card .meta{font-size:.78rem;color:var(--ink-soft);margin:.5rem 0 .8rem}
 .work-card p{font-size:.9rem;color:var(--ink-soft);line-height:1.9}
+.home-entry{display:block;background:var(--paper);border:1px solid var(--line);padding:1.6rem 1.8rem;margin-bottom:1.2rem}
+.home-entry:hover{text-decoration:none;border-color:var(--accent-soft)}
+.home-entry h2{font-size:1.3rem;letter-spacing:.3em}
+.home-entry p{font-size:.85rem;color:var(--ink-soft);margin-top:.4rem}
 .work-head{text-align:center;margin-bottom:3rem}
 .work-head h1{font-size:1.8rem;letter-spacing:.2em;margin-bottom:.6rem}
 .work-head .meta{font-size:.8rem;color:var(--ink-soft)}
@@ -284,10 +288,16 @@ def ensure_notes(site, book_id, title_book):
     io.open(p, 'w', encoding='utf-8').write(page)
     return 'created(骨架)'
 
-def ensure_home_card(site, book_id, title_book, meta, blurb):
-    home = os.path.join(site, 'index.html')
-    if not os.path.exists(home):
-        io.open(home, 'w', encoding='utf-8').write(f'''<!DOCTYPE html>
+def ensure_home_card(site, book_id, title_book, meta, blurb, section=''):
+    # section 非空时插入分类页（long/short/exercise），否则插入首页
+    if section:
+        home = os.path.join(site, section, 'index.html')
+        if not os.path.exists(home):
+            return f'skip(分类页 {section}/index.html 不存在)'
+    else:
+        home = os.path.join(site, 'index.html')
+        if not os.path.exists(home):
+            io.open(home, 'w', encoding='utf-8').write(f'''<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -308,16 +318,17 @@ def ensure_home_card(site, book_id, title_book, meta, blurb):
     s = io.open(home, encoding='utf-8').read()
     if f'works/{book_id}/index.html' in s:
         return 'skip(卡片已存在)'
-    card = f'''  <a class="work-card" href="works/{book_id}/index.html">
+    prefix = '../' if section else ''
+    card = f'''  <a class="work-card" href="{prefix}works/{book_id}/index.html">
     <h2>{html.escape(title_book)}</h2>
     <div class="meta">{html.escape(meta)}</div>
     <p>{html.escape(blurb)}</p>
   </a>
 <!--CARDS-->'''
     if '<!--CARDS-->' not in s:
-        s = s.replace('</main>', '<!--CARDS-->\n</main>')
+        return f'skip({"分类页" if section else "首页"}无 <!--CARDS--> 标记)'
     io.open(home, 'w', encoding='utf-8').write(s.replace('<!--CARDS-->', card, 1))
-    return 'created(首页卡片)'
+    return f'created({"分类页" if section else "首页"}卡片)'
 
 def copy_archive(book_dir, site, book_id):
     adir = os.path.join(site, 'archive', book_id)
@@ -349,6 +360,8 @@ def main():
     ap.add_argument('--title', required=True)
     ap.add_argument('--meta', default='')
     ap.add_argument('--blurb', default='')
+    ap.add_argument('--section', default='', choices=['', 'long', 'short', 'exercise'],
+                    help='书卡插入的分类页（long/short/exercise/index.html）；缺省插首页')
     a = ap.parse_args()
 
     # assets 只在缺失时生成：现行 style.css / reader.js 含人工增补，永不覆盖
@@ -365,9 +378,9 @@ def main():
     write_chapter_pages(a.site_dir, a.book_id, a.title, chs)
     r1 = ensure_work_index(a.site_dir, a.book_id, a.title, a.meta, chs)
     r2 = ensure_notes(a.site_dir, a.book_id, a.title)
-    r3 = ensure_home_card(a.site_dir, a.book_id, a.title, a.meta, a.blurb)
+    r3 = ensure_home_card(a.site_dir, a.book_id, a.title, a.meta, a.blurb, a.section)
     n = copy_archive(a.book_dir, a.site_dir, a.book_id)
-    print(f'章节页 {len(chs)} 已生成 | 作品页 {r1} | 手记页 {r2} | 首页 {r3} | 档案 {n} 件已复制')
+    print(f'章节页 {len(chs)} 已生成 | 作品页 {r1} | 手记页 {r2} | 书卡 {r3} | 档案 {n} 件已复制')
 
 if __name__ == '__main__':
     main()
