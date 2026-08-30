@@ -17,14 +17,16 @@ footer{max-width:var(--measure);margin:0 auto;padding:2rem 1.2rem 3rem;border-to
 .work-card h2{font-size:1.25rem;letter-spacing:.1em}
 .work-card .meta{font-size:.78rem;color:var(--ink-soft);margin:.5rem 0 .8rem}
 .work-card p{font-size:.9rem;color:var(--ink-soft);line-height:1.9}
-.home-list{border-top:1px solid var(--line)}
-.home-entry{display:flex;justify-content:space-between;align-items:baseline;gap:2rem;padding:1.4rem .4rem;border-bottom:1px solid var(--line);color:var(--ink)}
-.home-entry:hover{text-decoration:none}
-.home-entry h2{font-size:1.15rem;letter-spacing:.25em;flex-shrink:0;transition:color .3s}
-.home-entry p{font-size:.82rem;color:var(--ink-soft);line-height:1.9;text-align:right;transition:color .3s}
-.home-entry:hover h2{color:var(--accent)}
-.home-entry:hover p{color:var(--ink)}
-@media (max-width:600px){.home-entry{flex-direction:column;gap:.2rem;padding:1.1rem .2rem}.home-entry p{text-align:left}}
+.home-entry{position:relative;display:block;background:var(--paper);border:1px solid var(--line);padding:1.6rem 1.8rem;margin-bottom:1.2rem;overflow:hidden;transition:border-color .4s,box-shadow .4s}
+.home-entry::before{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-soft));transition:width .5s ease}
+.home-entry:hover{text-decoration:none;border-color:var(--accent-soft);box-shadow:0 3px 14px rgba(0,0,0,.07)}
+.home-entry:hover::before{width:100%}
+.home-entry .num{position:absolute;right:1rem;top:50%;transform:translateY(-50%);font-size:4.5rem;line-height:1;color:var(--ink);opacity:.07;pointer-events:none;transition:opacity .4s}
+.home-entry:hover .num{opacity:.14}
+.home-entry h2{font-size:1.3rem;letter-spacing:.3em}
+.home-entry p{font-size:.85rem;color:var(--ink-soft);line-height:1.9;margin-top:0;opacity:0;max-height:0;overflow:hidden;transition:opacity .4s ease,max-height .4s ease,margin-top .4s ease}
+.home-entry:hover p,.home-entry:focus-visible p{opacity:1;max-height:5em;margin-top:.4rem}
+@media (max-width:600px){.home-entry p{opacity:1;max-height:none;margin-top:.4rem}.home-entry .num{font-size:3.2rem}}
 .work-head{text-align:center;margin-bottom:3rem}
 .work-head h1{font-size:1.8rem;letter-spacing:.2em;margin-bottom:.6rem}
 .work-head .meta{font-size:.8rem;color:var(--ink-soft)}
