@@ -227,14 +227,14 @@
   const FONT="font-family:'Ma Shan Zheng',cursive";
   /* 三本书的数据：顺序 = 谋杀歌谣 / 烧却告白 / 如首无作祟之物 */
   const BOOKS=[
-   {svg:'wd0', seed:42,  yMax:1.0, rev:11, chapters:[1,2,3,4,5,6,7,8,9,10,11,12,13],
+   {svg:'wd0', seed:42,  yMax:1.0, rev:0, chapters:[1,2,3,4,5,6,7,8,9,10,11,12,13],
     uniform:[1/6,1/6,1/6,1/6,1/7,1/7,1/7,1/8,1/8,1/9,1/9,1/9,1/9],
     series:[
      {name:'天真读者 M0',color:'#9f4920',data:[0.45,0.50,0.68,0.82,0.80,0.90,0.82,0.90,0.96,0.975,0.99,0.99,1.0]},
      {name:'聪明读者 M1',color:'#4a6fa5',data:[0.17,0.28,0.40,0.42,0.45,0.50,0.52,0.55,0.60,0.66,0.72,0.90,0.97]},
      {name:'老练读者 M+',color:'#195736',data:[0.31,0.27,0.38,0.57,0.65,0.72,0.80,0.85,0.92,0.95,0.97,0.99,1.0]}],
-    legendAt:[[7.4,6,-16],[8.8,6,34],[7.0,5,-16]], uniLabelAt:[5.5,1/7,-14]},
-   {svg:'wd1', seed:77,  yMax:1.0, rev:10, chapters:[5,6,7,8,9,10],
+    legendAt:[[7.4,6,-34],[8.8,6,34],[7.0,5,-16]], uniLabelAt:[5.5,1/7,-14]},
+   {svg:'wd1', seed:77,  yMax:1.0, rev:0, chapters:[5,6,7,8,9,10],
     uniform:[1/8,1/9,1/9,1/9,1/10],
     series:[
      {name:'天真读者 M0',color:'#9f4920',data:[0.10,0.27,0.16,0.68,0.88]},
@@ -328,8 +328,8 @@
       const t=el('text',{x:X(L[0]),y:Y(s.data[L[1]])+L[2],'font-size':13,fill:s.color,style:FONT});
       t.textContent=s.name;svg.appendChild(t);
     });
-    /* 揭示章 */
-    {
+    /* 揭示章（rev=0 的书不画） */
+    if(B.rev){
       const rng=mulberry32(seed+21),x=X(B.rev);
       svg.appendChild(el('path',{d:sketchPath([[x,M.t+3],[x,H-M.b]],rng,1.2),fill:'none',stroke:'#db3356','stroke-width':1.6,'stroke-dasharray':'3 6','stroke-linecap':'round'}));
       const t=el('text',{x:x-8,y:M.t+13,'text-anchor':'end','font-size':13,fill:'#db3356',style:FONT});
