@@ -6,6 +6,7 @@
 <title>可计算的 AI writing——LLM 时代下的本格推理小说创作理论与实践 · Qラピカ文库</title>
 <link rel="stylesheet" href="../assets/style.css?v=20260830-7">
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
 <script defer src="../assets/katex/katex.min.js"></script>
 <script defer src="../assets/katex/auto-render.min.js"></script>
 </head>
@@ -105,7 +106,6 @@
   <p>$$M(i) \;=\; p\bigl(Y = \cdot \,\big|\, \mathcal{F}_i\bigr) \;\in\; \Delta^{|\mathcal{Y}|-1}$$</p>
   <p>即读到第 $i$ 段时，该读者对"谁是凶手"的概率估计；其 argmax 就是"该读者此刻猜的凶手"：$\hat{y}_M(i) = \arg\max_{y \in \mathcal{Y}} M(i)_y$。</p>
   <p>这个视角下有一个漂亮的对应：<strong>理想读者（贝叶斯最优推断者）的估计过程是关于 $Y$ 的鞅</strong>——由于故事最终会揭示真相（$Y$ 关于 $\mathcal{F}_L$ 可测），依鞅收敛定理，$M(i) \to \delta_{y^{*}}$（概率质量最终收敛到真凶）；而"线索充分"对应的是：这个收敛在揭示点<strong>之前</strong>就已完成。于是一个故事的"可解性"可以被刻画为：这个鞅向真值收敛得又多快、又多稳。天真读者则是一个被红鲱鱼牵引的次优推断器——理想情况下，它的概率质量应流向幌子 $\bar{y}$ 而非真凶。</p>
-  <p><span class="aside">若作者像奎因那样发出"挑战读者"的宣言，就等价于公开声明：在这个节点上 $\mathcal{F}_i$ 的信息已经充分，理想读者的后验此刻便应已锁定真凶。</span></p>
   <p><strong>whodunit 之外，howdunit 可以形式化吗？</strong> 可以类比着做。此时隐藏变量 $Y$ 不再是有限嫌疑人集合上的分类变量，而是"手法"这样一个<strong>结构化对象</strong>（一套时空安排）。一个自然的刻画是把密室建模为<strong>约束满足问题</strong>：在前读阶段，读者眼中的约束系统看似不可满足——这就是"不可能"感的来源；而解答的本质是揭示<strong>某个被默认的隐含约束其实并不成立</strong>（时间被伪造、空间被压缩、证词造假——正好对应上文的三种 alibi 破解），系统由此恢复可满足。</p>
   <ul>
     <li>刻画的困难在于：$\mathcal{Y}$ 不再有限，argmax 式的分类指标随之失效，"读者此刻猜的手法对不对"不再是一个良定义的问题。</li>
@@ -209,10 +209,139 @@
     <li><strong>复杂度不设上限，但保险强制配对</strong>。锚点全部进表、逐条实算；动作链按时间窗切段，逐段给出耗时估算、窗口余量与失败模式；多诡计叠加时画依赖图（哪个诡计以另一个为前提），防止改一处塌一片。</li>
     <li><strong>高回收密度章节的事实提取表</strong>。自白章、对峙章、解答章动笔前，把要回收的每条线索、每句台词逐字摘录并注明出处，禁止凭记忆复述。它是"改稿漂移"在高密度章节的对症药：凭记忆回收是引文错位的主要来源。</li>
   </ol>
+  <h3>6.3 AI 创作的小说与本格名著的差异</h3>
+  <div class="wd-wrap">
+    <div class="wd-panel"><h3>《谋杀歌谣》</h3><svg id="wd0" viewBox="0 0 460 330"></svg></div>
+    <div class="wd-panel"><h3>《烧却告白》</h3><svg id="wd1" viewBox="0 0 460 330"></svg></div>
+    <div class="wd-panel"><h3>《如首无作祟之物》</h3><svg id="wd2" viewBox="0 0 460 330"></svg></div>
+  </div>
+  <style>
+  .wd-wrap{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin:24px 0}
+  .wd-panel{width:460px;max-width:100%;background:#f6f1e3;padding:12px;border-radius:6px}
+  .wd-panel h3{font-family:'Ma Shan Zheng',cursive;font-weight:400;font-size:19px;
+    margin:0 0 4px;transform:rotate(-.4deg);color:#121212}
+  .wd-panel svg{width:100%;height:auto;display:block}
+  </style>
+  <script>
+  (function(){
+  const FONT="font-family:'Ma Shan Zheng',cursive";
+  /* 三本书的数据：顺序 = 谋杀歌谣 / 烧却告白 / 如首无作祟之物 */
+  const BOOKS=[
+   {svg:'wd0', seed:42,  yMax:1.0, rev:11, chapters:[1,2,3,4,5,6,7,8,9,10,11,12,13],
+    uniform:[1/6,1/6,1/6,1/6,1/7,1/7,1/7,1/8,1/8,1/9,1/9,1/9,1/9],
+    series:[
+     {name:'天真读者 M0',color:'#9f4920',data:[0.45,0.50,0.68,0.82,0.80,0.90,0.82,0.90,0.96,0.975,0.99,0.99,1.0]},
+     {name:'聪明读者 M1',color:'#4a6fa5',data:[0.17,0.28,0.40,0.42,0.45,0.50,0.52,0.55,0.60,0.66,0.72,0.90,0.97]},
+     {name:'老练读者 M+',color:'#195736',data:[0.31,0.27,0.38,0.57,0.65,0.72,0.80,0.85,0.92,0.95,0.97,0.99,1.0]}],
+    legendAt:[[7.4,6,-16],[8.8,6,34],[7.0,5,-16]], uniLabelAt:[5.5,1/7,-14]},
+   {svg:'wd1', seed:77,  yMax:1.0, rev:10, chapters:[5,6,7,8,9,10],
+    uniform:[1/8,1/9,1/9,1/9,1/10],
+    series:[
+     {name:'天真读者 M0',color:'#9f4920',data:[0.10,0.27,0.16,0.68,0.88]},
+     {name:'聪明读者 M1',color:'#4a6fa5',data:[0.25,0.32,0.34,0.56,0.86]},
+     {name:'老练读者 M+',color:'#195736',data:[0.30,0.30,0.28,0.55,0.88]}],
+    legendAt:[[6.6,2,36],[7.6,2,-18],[5.4,0,-18]], uniLabelAt:[7,1/9,-16]},
+   {svg:'wd2', seed:99,  yMax:0.5, rev:23, chapters:[12,13,14,15,16,17,18,19,20,21,22,23],
+    uniform:[1/18,1/19,1/19,1/19,1/19,1/19,1/20,1/20,1/19,1/19,1/19],
+    series:[
+     {name:'天真读者 M0',color:'#9f4920',data:[0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01]},
+     {name:'聪明读者 M1',color:'#4a6fa5',data:[0.12,0.14,0.11,0.11,0.10,0.02,0.01,0.01,0.01,0.14,0.21]},
+     {name:'老练读者 M+',color:'#195736',data:[0.08,0.12,0.10,0.10,0.10,0.04,0.02,0.01,0.02,0.08,0.08]}],
+    legendAt:[[18.6,8,-18],[21,10,-18],[14.6,2,-18]], uniLabelAt:[15.5,0.053,-14]},
+  ];
+
+  function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+  const NS='http://www.w3.org/2000/svg';
+  function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e}
+  function sketchPath(pts,rng,amp){
+    let d='';
+    for(let i=0;i<pts.length-1;i++){
+      const[x1,y1]=pts[i],[x2,y2]=pts[i+1];
+      const dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy),nx=-dy/len,ny=dx/len;
+      const steps=Math.max(2,Math.round(len/14));
+      if(i===0)d+=`M ${(x1+(rng()-.5)*amp).toFixed(1)} ${(y1+(rng()-.5)*amp).toFixed(1)}`;
+      for(let s=1;s<=steps;s++){
+        const t=s/steps,off=(s===steps?0:(rng()-.5)*2*amp);
+        d+=` L ${(x1+dx*t+nx*off).toFixed(1)} ${(y1+dy*t+ny*off).toFixed(1)}`;
+      }
+    }
+    return d;
+  }
+  function sketchCircle(cx,cy,r,rng){
+    const pts=[],n=14,a0=rng()*6.28;
+    for(let i=0;i<=n;i++){const a=a0+i/n*6.28,rr=r*(0.86+rng()*0.3);
+      pts.push([cx+Math.cos(a)*rr,cy+Math.sin(a)*rr*0.9]);}
+    return 'M '+pts.map(p=>p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' L ');
+  }
+
+  BOOKS.forEach(function(B){
+    const W=460,H=330,M={l:46,r:16,t:16,b:40},xw=W-M.l-M.r,yh=H-M.t-M.b;
+    const c0=B.chapters[0], cN=B.chapters[B.chapters.length-1];
+    const X=c=>M.l+(c-c0)/(cN-c0)*xw, Y=p=>M.t+(1-p/B.yMax)*yh;
+    const svg=document.getElementById(B.svg), seed=B.seed;
+    /* 网格 */
+    const gy=B.yMax===1?[0,.25,.5,.75,1]:[0,.1,.2,.3,.4,.5];
+    gy.forEach(v=>svg.appendChild(el('line',{x1:M.l,x2:W-M.r,y1:Y(v),y2:Y(v),stroke:'#d8d2bf','stroke-dasharray':'1,5'})));
+    B.chapters.forEach(c=>svg.appendChild(el('line',{x1:X(c),x2:X(c),y1:M.t,y2:H-M.b,stroke:'#d8d2bf','stroke-dasharray':'1,5'})));
+    /* 手绘轴 */
+    [0,1].forEach(p=>{
+      const rng=mulberry32(seed+p*77);
+      svg.appendChild(el('path',{d:sketchPath([[M.l,M.t-4],[M.l,H-M.b],[W-M.r+3,H-M.b]],rng,1.3),
+        fill:'none',stroke:'#121212','stroke-width':p?0.8:1.5,'stroke-linecap':'round',opacity:p?.55:.9}));
+    });
+    /* 刻度 */
+    const rngT=mulberry32(seed+5);
+    gy.forEach(v=>{
+      svg.appendChild(el('path',{d:sketchPath([[M.l-5,Y(v)],[M.l,Y(v)]],rngT,0.8),fill:'none',stroke:'#121212','stroke-width':1.3,'stroke-linecap':'round'}));
+      const t=el('text',{x:M.l-9,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'#5c5850',style:FONT});
+      t.textContent=v.toFixed(2);svg.appendChild(t);
+    });
+    B.chapters.forEach(c=>{
+      const t=el('text',{x:X(c),y:H-M.b+20,'text-anchor':'middle','font-size':11,style:FONT});
+      t.textContent=c;svg.appendChild(t);
+    });
+    /* y 轴标题：不出现嫌疑人名 */
+    const yl=el('text',{x:12,y:M.t+yh/2,'text-anchor':'middle','font-size':11,fill:'#5c5850',
+      transform:`rotate(-90 12 ${M.t+yh/2})`,style:FONT});
+    yl.textContent='P(真凶)';svg.appendChild(yl);
+    /* 均匀基线 */
+    {
+      const rng=mulberry32(seed+11),pts=[];
+      B.uniform.forEach((v,i)=>{const x=X(B.chapters[i]);pts.push([x-xw/14,Y(v)],[x+xw/14,Y(v)]);});
+      svg.appendChild(el('path',{d:sketchPath(pts,rng,1.4),fill:'none',stroke:'#9ba1a5','stroke-width':1.6,'stroke-dasharray':'6 5','stroke-linecap':'round'}));
+      const t=el('text',{x:X(B.uniLabelAt[0]),y:Y(B.uniLabelAt[1])+B.uniLabelAt[2],'font-size':11,fill:'#9ba1a5',style:FONT,'text-anchor':'middle'});
+      t.textContent='均匀基线 = 瞎猜';svg.appendChild(t);
+    }
+    /* 三条读者曲线 */
+    B.series.forEach((s,si)=>{
+      const pts=s.data.map((v,i)=>[X(B.chapters[i]),Y(v)]);
+      [0,1].forEach(p=>{
+        const rng=mulberry32(seed+100+si*31+p*7);
+        svg.appendChild(el('path',{d:sketchPath(pts,rng,1.8),fill:'none',stroke:s.color,
+          'stroke-width':p?1:2.1,'stroke-linecap':'round',opacity:p?0.5:1}));
+      });
+      pts.forEach(([x,y],pi)=>{
+        const rng=mulberry32(seed+500+si*13+pi);
+        svg.appendChild(el('path',{d:sketchCircle(x,y,4,rng),fill:'none',stroke:s.color,'stroke-width':1.6,'stroke-linecap':'round'}));
+      });
+      const L=B.legendAt[si];
+      const t=el('text',{x:X(L[0]),y:Y(s.data[L[1]])+L[2],'font-size':13,fill:s.color,style:FONT});
+      t.textContent=s.name;svg.appendChild(t);
+    });
+    /* 揭示章 */
+    {
+      const rng=mulberry32(seed+21),x=X(B.rev);
+      svg.appendChild(el('path',{d:sketchPath([[x,M.t+3],[x,H-M.b]],rng,1.2),fill:'none',stroke:'#db3356','stroke-width':1.6,'stroke-dasharray':'3 6','stroke-linecap':'round'}));
+      const t=el('text',{x:x-8,y:M.t+13,'text-anchor':'end','font-size':13,fill:'#db3356',style:FONT});
+      t.textContent='揭示章 ↑';svg.appendChild(t);
+    }
+  });
+  })();
+  </script>
   <hr>
   <h2>参考文献</h2>
   <ol>
-    <li>Peter Hühn, "The Detective as Reader: Narrativity and Reading Concepts in Detective Fiction," <em>MFS Modern Fiction Studies</em> 33(3), 1987: 451–466. <a href="https://muse.jhu.edu/article/242857">https://muse.jhu.edu/article/242857</a></li>
+    <li>Peter Hühn, "The Detective as Reader: Narrativity and Reading Concepts in Detective Fiction," <em>MFS Modern Fiction Studies</em> 33(3), 1987: 451–466. <a href="https://muse.jhu.edu/article/244364">https://muse.jhu.edu/article/244364</a></li>
     <li>Eitan Wagner, Renana Keydar, Omri Abend, "The Challenge and Reward of Fair Play in Narrative: A Computational Approach," arXiv:2507.13841. <a href="https://arxiv.org/abs/2507.13841">https://arxiv.org/abs/2507.13841</a></li>
     <li>豆瓣笔记：《为什么埃勒里·奎因可以被AI取代——"现代的逻辑流"何以可能》，<a href="https://www.douban.com/note/854874505/">https://www.douban.com/note/854874505/</a></li>
   </ol>
