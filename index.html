@@ -5,16 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Qラピカ</title>
 <link rel="stylesheet" href="assets/style.css?v=20260830-7">
+<style>
+body{min-height:100vh;display:flex;align-items:center;justify-content:center}
+.gate{text-align:center;padding:2rem 1.2rem;animation:gateIn .8s ease}
+.gate-pen{font-size:2.2rem;letter-spacing:.5em;margin-right:-.5em}
+.gate-sub{font-size:.78rem;color:var(--ink-soft);letter-spacing:.4em;margin-right:-.4em;margin-top:.8rem}
+.gate-rule{width:3em;height:1px;background:var(--line);margin:1.8rem auto}
+.gate-entry{position:relative;font-size:.85rem;padding-bottom:.3rem}
+.gate-entry::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-soft));transition:width .5s ease}
+.gate-entry:hover{text-decoration:none}
+.gate-entry:hover::after{width:100%}
+@keyframes gateIn{from{opacity:0}to{opacity:1}}
+</style>
 </head>
 <body>
-<header class="site">
-  <div class="pen">Qラピカ<small>本格推理文库</small></div>
-</header>
-<main>
-  <p style="font-size:.85rem;color:var(--ink-soft);margin-bottom:2.5rem">
-    <a href="bunko/index.html">进入文库 →</a>
-  </p>
+<main class="gate">
+  <div class="gate-pen">Qラピカ</div>
+  <div class="gate-sub">本格推理文库</div>
+  <div class="gate-rule"></div>
+  <a class="gate-entry" href="bunko/index.html">进入文库 →</a>
 </main>
-<footer>Qラピカ（Q拉比卡）· 笔名取自《全职猎人》的クラピカ · 本站为静态页面，源码与创作档案见 GitHub 仓库</footer>
 </body>
 </html>
