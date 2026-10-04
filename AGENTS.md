@@ -6,6 +6,7 @@
 ## 站点与角色
 
 - 本仓库 = 站点本体：GitHub Pages 仓库 `QRARPIKT/QRARPIKT.github.io` 的本地工作副本，线上地址 <https://qrabica.com>。
+- **站点结构（2026-10 分区改造后）**：根页 `index.html` = 极简入口页（只链接文库）；`bunko/index.html` = 文库四卡入口（长篇/短篇/习作/手记），对外分享小说一律给 `qrabica.com/bunko/`；`travel/` = 用户私密旅行记录（占位中），**任何公开页面（根页、bunko、文库各页）都禁止出现指向 travel 的链接**，travel 页自身带 `noindex` 且不回链公开区。全站面包屑统一指向 `bunko/index.html`。
 - **写作 agent**：产出小说与配套档案，打成 zip 由用户放入 `incoming/`。写作 agent 永远不直接碰本仓库。
 - **站点 agent（你）**：收货、校验、重建网页、同步 archive、修改仓库内文件。
 - **用户**：审阅确认、执行全部 git 提交操作、拍板所有文案。
@@ -50,7 +51,7 @@ python3 scripts/build_site.py --book-dir incoming/{book-id} --site-dir . \
 - `works/{book-id}/index.html`：章题或序号体系一变，手动重写 `<ul class="chapter-list">` 目录。
 - `works/{book-id}/notes.html`：保留页首 warn 泄底警告块，正文由 notes.md 重新注入（`## ` → h2）。
 - `works/overfitting/handbook.html`（仅过拟合）：由 documents/二读手册.md 重新生成前，先清掉页首残留的 blockquote 警告块，只保留一条。
-- 首页 `index.html` 四入口、`assets/style.css` / `reader.js`：人工领地，脚本不会动；style.css 若有手工改动，顺手同步 `scripts/build_site.py` 里的 STYLE 常量（两者已验证字节级一致），**并把五个顶层页面（`index.html`、`long/`、`short/`、`exercise/`、`journal/`）css 链接里的 `?v=` 日期改为当天**，强制浏览器刷新缓存（Safari 激进缓存旧 css 已有前科）。
+- 首页 `index.html` 与文库入口 `bunko/index.html`、`assets/style.css` / `reader.js`：人工领地，脚本不会动；style.css 若有手工改动，顺手同步 `scripts/build_site.py` 里的 STYLE 常量（两者已验证字节级一致），**并把六个顶层页面（`index.html`、`bunko/`、`long/`、`short/`、`exercise/`、`journal/`）css 链接里的 `?v=` 日期改为当天**，强制浏览器刷新缓存（Safari 激进缓存旧 css 已有前科）。
 
 **第 4 步：archive 抽验**
 
@@ -62,7 +63,7 @@ python3 scripts/build_site.py --book-dir incoming/{book-id} --site-dir . \
 
 ## 人工领地（文案）
 
-- 首页为四入口页（长篇→`long/`、短篇→`short/`、习作→`exercise/`、手记→`journal/`），本身不放作品卡；书卡归属各分类页，脚本按 `--section` 插入对应分类页末尾的 `<!--CARDS-->` 处。
+- 文库入口 `bunko/index.html` 为四入口页（长篇→`long/`、短篇→`short/`、习作→`exercise/`、手记→`journal/`），本身不放作品卡；书卡归属各分类页，脚本按 `--section` 插入对应分类页末尾的 `<!--CARDS-->` 处。
 - 手记页 `journal/index.html` 是用户自己的心路历程随笔，属人工领地，内容由用户维护。已挂自托管 KaTeX（`assets/katex/`）：行内公式 `$...$`、独立行 `$$...$$` 直接写在正文里即可，勿动页首的 katex 引入与尾部 renderMathInElement 配置。
 - 分类页书卡（短版）与作品页简介（长版）是两个独立文案，用户给哪段贴哪段，不要互相推导。
 - 交付包里的 intro.md 只进 archive 存档，**不自动上页**（有过 intro 回归废弃设定的前科）。
@@ -76,6 +77,7 @@ python3 scripts/build_site.py --book-dir incoming/{book-id} --site-dir . \
 4. **【】占位符**：永不写跨书对照，见到即删（带文字的变体也要查）。
 5. **手册警告叠加**：重生成 handbook 前先清页首 blockquote。
 6. **TOC 不自动更新**：章题/序号体系一变，作品页目录必须手工同步。
+7. **travel 私密分区**：`travel/` 属人工领地，脚本不碰；公开页面（根页/bunko/文库各页）永不链接它，travel 页也不回链公开区；新增同类私密分区（如日记）同样处理，且必须带 `noindex`、不写进 robots.txt（robots.txt 会公开广告路径）。
 
 ## 现有书籍（book-id）
 

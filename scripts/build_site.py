@@ -206,7 +206,7 @@ def write_chapter_pages(site, book_id, title_book, chs):
   {toc}
 </nav>
 <nav class="breadcrumb" style="max-width:38em;margin:3rem auto 0;padding:0 1.2rem">
-  <a href="../../index.html">Qラピカ文库</a> / <a href="index.html">{html.escape(title_book)}</a>
+  <a href="../../bunko/index.html">Qラピカ文库</a> / <a href="index.html">{html.escape(title_book)}</a>
 </nav>
 <main>
 <article class="chapter">
@@ -243,7 +243,7 @@ def ensure_work_index(site, book_id, title_book, meta, chs):
 </head>
 <body>
 <nav class="breadcrumb" style="max-width:38em;margin:3rem auto 0;padding:0 1.2rem">
-  <a href="../../index.html">Qラピカ文库</a> / {html.escape(title_book)}
+  <a href="../../bunko/index.html">Qラピカ文库</a> / {html.escape(title_book)}
 </nav>
 <main>
   <div class="work-head">
@@ -284,7 +284,7 @@ def ensure_notes(site, book_id, title_book):
 </head>
 <body>
 <nav class="breadcrumb" style="max-width:38em;margin:3rem auto 0;padding:0 1.2rem">
-  <a href="../../index.html">Qラピカ文库</a> / <a href="index.html">{html.escape(title_book)}</a> / 创作手记
+  <a href="../../bunko/index.html">Qラピカ文库</a> / <a href="index.html">{html.escape(title_book)}</a> / 创作手记
 </nav>
 <main class="notes">
   <div class="work-head">
