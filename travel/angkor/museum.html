@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>吴哥雕像时代线</title>
+  <style>
+    :root{--bg:#f8f4ee;--ink:#231503;--muted:#a39b90;--paper:#f3efe4;--gold:#C9B46D;--line:rgba(35,21,3,.16);--dark:#231503;--image-bg:#241A13;--site-margin:clamp(1rem,.428rem + 2.86vw,3rem);--serif:Georgia,"Times New Roman","Noto Serif SC","Songti SC","SimSun",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}img{display:block;max-width:100%}
+    .topbar{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:.85rem var(--site-margin);background:rgba(248,244,238,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .topbar .brand{font-family:var(--serif);font-size:1.02rem;letter-spacing:.08em}.topbar .hint{font-size:.78rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+    .hero{background:var(--dark);color:var(--paper);padding:clamp(4rem,9vw,8rem) var(--site-margin) clamp(3.2rem,7vw,6rem);border-bottom:1px solid rgba(201,180,109,.35)}
+    .eyebrow{margin:0 0 1rem;color:var(--gold);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase}
+    h1{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(2.7rem,8.333vw,7.2rem);line-height:1;letter-spacing:-.04em}
+    .hero p{max-width:46rem;margin:1.6rem 0 0;color:rgba(243,239,228,.78);font-size:clamp(1rem,1.25vw,1.25rem)}
+    .hero .rule{width:min(34rem,72%);height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin-top:2rem}
+    main{padding:clamp(2.4rem,6vw,5rem) var(--site-margin) 6rem}.timeline{position:relative;display:grid;gap:clamp(3rem,7vw,6rem)}
+    .timeline::before{content:"";position:absolute;left:clamp(.35rem,1vw,.65rem);top:.5rem;bottom:.5rem;width:1px;background:var(--line)}
+    .period{position:relative;padding-left:clamp(1.8rem,4vw,3rem)}.period::before{content:"";position:absolute;left:0;top:.55rem;width:.72rem;height:.72rem;border-radius:50%;background:var(--gold);box-shadow:0 0 0 .38rem var(--bg)}
+    .period-title{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(1.55rem,3.2vw,2.6rem);line-height:1.15}.period-sub{margin:.35rem 0 0;color:var(--muted);font-size:.92rem}
+    .object{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(1.2rem,3vw,2.4rem);align-items:start;padding-left:clamp(1.8rem,4vw,3rem)}
+    .object::before{content:"";position:absolute;left:0;top:1rem;width:.72rem;height:.72rem;border-radius:50%;background:var(--ink);box-shadow:0 0 0 .38rem var(--bg)}
+    .image-wrap{grid-column:1/8;background:var(--image-bg);border:1px solid rgba(35,21,3,.18);aspect-ratio:1/1;overflow:hidden;cursor:zoom-in}
+    article.object:nth-of-type(odd) .image-wrap{grid-column:6/13;order:2}article.object:nth-of-type(odd) .meta{grid-column:1/6;order:1}
+    .image-wrap img{width:100%;height:100%;object-fit:contain;opacity:1;transition:transform .6s cubic-bezier(.22,1,.36,1)}.image-wrap:hover img{transform:scale(1.015)}
+    .meta{grid-column:8/13;border-top:1px solid var(--line);padding-top:1.1rem}.num{font-family:var(--serif);font-size:clamp(2.4rem,5vw,4.4rem);line-height:.9;color:rgba(35,21,3,.22)}
+    .meta h2{margin:.7rem 0 .25rem;font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,2.8vw,2.35rem);line-height:1.2}.en{display:block;margin-top:.2rem;color:var(--muted);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+    dl{display:grid;grid-template-columns:auto 1fr;gap:.28rem 1rem;margin:1.2rem 0 0;font-size:.95rem}dt{color:var(--muted);white-space:nowrap}dd{margin:0}.intro{margin:1rem 0 0;color:rgba(35,21,3,.86);font-size:1rem}
+    details{margin-top:1rem;border-top:1px solid var(--line);padding-top:.85rem}summary{cursor:pointer;list-style:none;color:var(--ink);font-size:.92rem;letter-spacing:.06em;display:flex;align-items:center;gap:.55rem}summary::-webkit-details-marker{display:none}
+    summary::before{content:"+";width:1.35rem;height:1.35rem;border:1px solid var(--line);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--muted);flex:0 0 auto}details[open] summary::before{content:"–"}details p{margin:.85rem 0 0;color:rgba(35,21,3,.78);font-size:.95rem}
+    .footer-note{margin-top:5rem;padding:2rem 0 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+    .lightbox{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem);background:rgba(2,2,2,.94);color:#fff}.lightbox.open{display:flex}.lightbox figure{margin:0;max-width:min(1100px,100%);max-height:100%}.lightbox img{max-height:82vh;width:auto;max-width:100%;margin:0 auto;object-fit:contain}.lightbox figcaption{margin-top:1rem;text-align:center;color:rgba(255,255,255,.72);font-size:.9rem;letter-spacing:.04em}.close{position:absolute;top:1rem;right:1rem;border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;width:2.6rem;height:2.6rem;border-radius:50%;cursor:pointer;font-size:1.1rem}
+    @media (max-width:820px){.timeline::before{left:.32rem}.object,.period{padding-left:1.35rem}.object,article.object:nth-of-type(odd){grid-template-columns:1fr}.image-wrap,article.object:nth-of-type(odd) .image-wrap{grid-column:auto;order:0}.meta,article.object:nth-of-type(odd) .meta{grid-column:auto;order:1}.image-wrap{aspect-ratio:1/1}dl{grid-template-columns:1fr;gap:.1rem}dt{margin-top:.7rem}.topbar .hint{display:none}}
+  </style>
+</head>
+<body>
+  <header class="topbar"><div><a href="index.html" style="color:var(--muted);text-decoration:none;font-size:.85rem;letter-spacing:.06em;margin-right:1rem">← 吴哥</a><span class="brand">Angkor Sculpture Timeline</span></div><div class="hint">statues only · chronological styles</div></header>
+  <section class="hero">
+    <p class="eyebrow">Museum visit index</p>
+    <h1>吴哥雕像时代线</h1>
+    <p>在吴哥国家博物馆，砂岩、木与金属并不沉默：梵天、毗湿奴与湿婆从印度教宇宙里走来，佛陀在蛇冠、足迹与卧姿中反复现身。从真腊到吴哥，再到后吴哥，风格在换，信仰在转手，而每一件残缺都还在讲秩序、慈悲与时间。</p>
+    <div class="rule"></div>
+  </section>
+  <main><div class="timeline" id="timeline"></div><p class="footer-note"></p></main>
+  <div class="lightbox" id="lightbox" aria-hidden="true"><button class="close" id="close" aria-label="关闭">×</button><figure><img id="lightboxImg" alt="" /><figcaption id="lightboxCap"></figcaption></figure></div>
+  <script>
+    const items = [
+      {
+            "period": "Pre-Angkorian Period",
+            "periodCn": "前吴哥时期",
+            "order": "01",
+            "title": "毗湿奴",
+            "en": "Vishnu",
+            "date": "7 世纪前半",
+            "style": "前吴哥时期，Sambor Prei Kuk 风格",
+            "place": "柬埔寨 Kampong Speu 省 Phnom Sruoch 区 Maha Sang 乡 Tuol Village",
+            "material": "砂岩",
+            "intro": "名卡说得很标准：婆罗门教/印度教里，毗湿奴是世界的维护者；典型四臂分别持地球（土）、轮盘（火）、海螺（水）、杵/杖（风）。这尊持物不全，但四臂格局、直筒高冠 Kiritamukuta、垂到脚踝的素长裙和卵形带扣细腰带都在，足以认出身份与时代趣味。",
+            "detail": [
+                  "Sambor Prei Kuk 的味道在“柱立式稳定”：身体正面、肩胸厚实、腿像两根石柱，装饰很少，力量来自比例而不是华丽。名卡还特别点出工程逻辑：右手下方的杵/杖和裙褶其实是支撑件，头后短弧用来托住上臂。这说明早期砂岩立像不是单纯雕人形，而是在石头的脆弱点上做结构补偿——多出来的手臂和法器容易断，就用衣褶、法器、背弧把它们接回主柱。",
+                  "后来的吴哥只是把这些底基放大、系统化。",
+                  "观看要点：先看高冠和四臂格局认毗湿奴；再找名卡说的四元素持物能否对应残件；最后看“支撑”——杵、裙褶、头后短弧怎样把雕像变成一根不容易断的石柱。"
+            ],
+            "img": "assets/item01.jpg"
+      },
+      {
+            "period": "Pre-Angkorian Period",
+            "periodCn": "前吴哥时期",
+            "order": "02",
+            "title": "佛陀入涅槃",
+            "en": "Buddha Entering Parinirvana",
+            "date": "7 世纪",
+            "style": "前吴哥时期（Pre-Angkorian Period）",
+            "place": "名卡标注 Ta Prohm temple, Siem Reap",
+            "material": "砂岩",
+            "intro": "这是一件真正的“卧佛/入涅槃”题材，而且年代被名卡推到 7 世纪前吴哥时期，远比 16 世纪那尊后吴哥卧佛早。图像逻辑很清楚：佛陀右侧卧，头枕右手，左手沿身体放平，衣裾落到脚踝附近，双足相叠；这不是 Sumedha 那种“以身为桥”的前世故事，而是释迦牟尼生命终点，进入般涅槃。看点在“终点的安静”：身体横陈，却不松垮；面容和螺发仍被认真处理。",
+            "detail": [
+                  "名卡英文还给了几个很具体的观察点：头部和肉髻有贝壳状卷发；头下枕着花纹漂亮的枕头；脚底不平整；像旁有一条严重剥蚀的单行铭文，字体看似前吴哥时期刻成。更重要的是后半段：后吴哥时期这尊像被修复、妆点过，证据是漆痕和凿痕，尤其在腰腹与胸部位置，被改出腰带和衣纹新褶。也就是说，这件像身上叠着两层时间——7 世纪的早期涅槃图像，以及后吴哥时期继续供奉时的重修手笔。",
+                  "这也解释了一个表面矛盾：名卡写 Ta Prohm，却又标 Pre-Angkorian 7th century。稳妥读法是，造像年代按风格与铭文归为前吴哥，Ta Prohm 可能是后来的发现/置放/登记语境；不要反过来说塔布茏寺建于 7 世纪。它因此特别有价值：既证明涅槃卧像传统在柬埔寨出现得极早，也证明早期石像在后世仍被重新使用、修整和供养。",
+                  "观看要点：先确认这是入涅槃，不是 Sumedha；再看头枕右手、左手顺身、双足相叠的标准卧姿；然后找名卡说的枕纹、贝状螺发、脚心底和像旁残铭；最后看腰腹/胸部的凿痕与漆痕，那里是后世修整留下的“第二层历史”。"
+            ],
+            "img": "assets/item02.jpg"
+      },
+      {
+            "period": "Pre-Angkorian Period",
+            "periodCn": "前吴哥时期",
+            "order": "03",
+            "title": "哈利哈拉",
+            "en": "Harihara",
+            "date": "7 世纪后半",
+            "style": "前吴哥时期，Prei Kmeng 风格",
+            "place": "柬埔寨 Kampong Cham Province",
+            "material": "砂岩",
+            "intro": "Harihara 是“合体神”：Hari 是毗湿奴，Hara 是湿婆。名卡说得很清楚——四臂，头部纵向分成两张“半脸”：右侧属湿婆，可见纠结发髻 Jatamukuta 和额上半个第三眼；左侧属毗湿奴，以筒形高冠 Kiritamukuta 识别。也就是说，这张脸不是单纯风化不对称，而是故意把两位主神缝进同一身体：一边破坏/转化，一边维护/保存。",
+            "detail": [
+                  "这类合体像的出现有强烈时代信号。名卡提到，最早 Harihara 图像和铭文可追到 Isanavarman I（616—637）时期；这尊标为 7 世纪后半 Prei Kmeng 风格，说明在真腊/前吴哥政治里，湿婆派与毗湿奴派不是简单打架，而是可以被王权、祭祀和视觉传统整合成“一体两面”。它既是神学图像，也是政治图像：把两种护法系统合并，减少对立，扩大合法性。",
+                  "造型上，Prei Kmeng 的 slender 感很明显：身体更瘦长，腰胯轻收，下肢缠裙用细刻线勾出花纹，和 Sambor Prei Kuk 那种厚重柱立式不同。手臂缺失让“四臂”只能靠名卡复原；面部特写里，眉眼、鼻梁和嘴唇仍有锋利刻画，高冠一侧的卷草/发髻痕迹提示左右分属。看这种像，重点不是找完整，而是训练自己读“半侧符号”。",
+                  "观看要点：先记住公式——右湿婆、左毗湿奴；"
+            ],
+            "img": "assets/item03.jpg"
+      },
+      {
+            "period": "Pre-Angkorian Period",
+            "periodCn": "前吴哥时期",
+            "order": "04",
+            "title": "前吴哥那伽护佛",
+            "en": "Buddha Sheltered by Naga",
+            "date": "7—8 世纪",
+            "style": "前吴哥时期（Pre-Angkorian Period）",
+            "place": "Trapeang Ker",
+            "material": "砂岩",
+            "intro": "它证明“佛陀禅定、蛇王 Mucalinda 以身护佛”的图像，在柬埔寨不是吴哥盛期才出现，而是在更早的真腊/前吴哥文化阶段已经成立。",
+            "detail": [
+                  "造型上和后世很不一样。11 世纪巴普昂版本里，佛与蛇冠还比较分清：佛在前，蛇冠像背景屏风。这件前吴哥版本更像一块竖起来的小型石碑：佛结跏趺坐、双手禅定印，身体压在下方；背后那伽身体向上收束成尖塔，多个蛇头/圆面沿中线叠上去，形成强烈的垂直轴。佛、蛇、座、背光几乎被压进同一个轮廓，显得朴拙、紧凑，也更像“标志物”而不只是叙事雕像。",
+                  "佛教传入后，蛇王护佛故事很容易和本地蛇神信仰接合。风化让脸部和蛇头细节变钝，但也强化了它作为早期实物的粗粝感。",
+                  "观看要点：先看整体轮廓——一个向上收尖的“佛-蛇复合碑”；再看下方佛陀的禅定姿势如何稳住构图；最后数/想上方叠置的蛇头，不必执着准确个数，重点是它们把保护力量一路引到顶端。"
+            ],
+            "img": "assets/item04.jpg"
+      },
+      {
+            "period": "Pre-Angkorian Period",
+            "periodCn": "前吴哥时期",
+            "order": "05",
+            "title": "太阳神苏利耶",
+            "en": "Surya, The Sun God",
+            "date": "7—8 世纪",
+            "style": "前吴哥时期（Pre-Angkorian Period）",
+            "place": "名卡标注 Unknown Provenance，出土地点不详",
+            "material": "砂岩",
+            "intro": "这尊是太阳神 Surya。名卡给的识别点很明确：婆罗门教里 Surya 是重要神祇；浮雕中他常坐马拉战车，背后有放射日轮，并常与月神相伴；独立圆雕里，日轮也会出现在头后。你这张正好看得到头后那圈圆盘——这就是把 Surya 从一般高冠男神里分出来的钥匙。名卡还说，这尊立像缺了下臂，原本很可能持莲花；莲花对太阳神来说不是装饰，而像日出、光照与生命展开的象征。",
+            "detail": [
+                  "Surya 的另一层意义是“时间”。名卡提到他在古印度天文学里很重要，尤其和 Navagraha 九曜系统有关。放到神庙空间里，太阳神不只代表光和热，也代表历法、方位、王权秩序和宇宙运转。",
+                  "它没有毗湿奴那种四元素法器，也不靠 Harihara 的左右半脸，而是靠头后日轮、可能持莲的双臂和高冠来标识。残损让下半身和手臂信息变少，反而更凸显头后圆盘。",
+                  "观看要点：先找头后日轮，这是身份钥匙；再想缺失下臂原本可能持莲；"
+            ],
+            "img": "assets/item05.jpg"
+      },
+      {
+            "period": "Pre-Angkorian Period",
+            "periodCn": "前吴哥时期",
+            "order": "06",
+            "title": "毗湿奴",
+            "en": "Vishnu",
+            "date": "8 世纪初",
+            "style": "前吴哥时期（Pre-Angkorian Period）",
+            "place": "柬埔寨暹粒省 Roluos 地区 Trapeang Phong Temple",
+            "material": "砂岩",
+            "intro": "这尊毗湿奴把前吴哥的印度教线推进到 8 世纪初的 Roluos。Roluos 一带后来与吴哥早期首都 Hariharalaya 关系密切，所以这尊像很适合放在“吴哥将兴未兴”的门槛上看：名卡仍标 Pre-Angkorian，但地点已经靠近后来吴哥核心区，体量也更雄健，像从地方神庙传统走向更大纪念性。",
+            "detail": [
+                  "图像上仍是四臂毗湿奴格局，高冠、赤裸上身、长裙/缠腰和宽稳站姿都在；名卡没有逐项列出持物，我也不按完整四元素硬配；更安全地说：四臂与高冠足以指向毗湿奴，具体法器已不可全辨。",
+                  "它和前吴哥那伽护佛、入涅槃佛一起看很有意思：同一时期，佛教在做卧佛与蛇王护佛，印度教在做直立维护者毗湿奴。毗湿奴的垂直站姿像一根稳定世界的轴；佛教的卧佛则把终点放平。两种身体姿势，刚好对应两种宇宙想象。",
+                  "观看要点：先用高冠和四臂残局认毗湿奴；再看胸腹与大腿的体积，感受 8 世纪初更雄壮的纪念性；最后看 Roluos 这个地名——它已经在吴哥核心区附近，却仍被馆方归前吴哥，正好站在时代门槛上。"
+            ],
+            "img": "assets/item06.jpg"
+      },
+      {
+            "period": "Pre-Angkorian Period",
+            "periodCn": "前吴哥时期",
+            "order": "07",
+            "title": "人面林伽",
+            "en": "Mukhalinga",
+            "date": "前吴哥时期（名卡未细分世纪）",
+            "style": "",
+            "place": "柬埔寨 Takeo 省 Treang，Wat Chhoeu Teal",
+            "material": "砂岩",
+            "intro": "Mukhalinga 是“带人脸的林伽”。名卡先讲大背景：前吴哥时期，湿婆常以林伽形式出现，象征生殖力与生命力量。它不是普通柱子，而是一套垂直宇宙模型：一整块石头雕成三段——方形基座对应梵天与四方，中段八边形对应毗湿奴与八方，顶部半圆对应湿婆与无限宇宙。三段叠起来，等于把印度教三相神和方位秩序压进一根柱子。",
+            "detail": [
+                  "这件特别处在于顶部还带一张人脸，所以叫 Mukhalinga：原本偏向非人形、符号化的湿婆，被轻轻拉开一道“面孔”的缝。它还不是完整神像，却不再只是抽象柱；像从符号向人形过渡的一步。照片里人面很浅，眼睛、鼻口只是刻线，必须顺着顶部曲面找，别期待高浮雕。",
+                  "展台上其他林伽和带流槽的 yoni 基座能帮助理解语境：林伽常立在 yoni 中，祭祀液体从槽中流出，象征生命循环与能量导出。但按我们约定，群照和单元说明牌不存档，这里只把名卡清楚的 Mukhalinga 单独立档。",
+                  "观看要点：先分三段——方基座、八边中段、半圆顶；再找顶部正面那张浅脸；最后把“三段=梵天/毗湿奴/湿婆+四方/八方/无限宇宙”这套对应记住，它就从一个石柱变成一张竖起来的宇宙图。"
+            ],
+            "img": "assets/item07.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "08",
+            "title": "梵天立像",
+            "en": "Brahma",
+            "date": "9 世纪末—10 世纪初",
+            "style": "吴哥时期，巴肯风格（Bakheng Style）",
+            "place": "柬埔寨暹粒省 Phnom Krom Temple",
+            "material": "砂岩",
+            "intro": "这是一件吴哥早期印度教造像，表现三相神中的创造之神梵天。梵天典型形象是四面、四臂，常持经卷、祭勺、念珠、水罐等；坐骑为天鹅 Hamsa，配偶为辩才天女 Saraswati。照片里因角度关系主要看到两张脸，但按题材应理解为四面像；高耸的筒状发髻、厚重躯干和程式化衣纹，都带有巴肯风格的早期吴哥特征。",
+            "detail": [
+                  "名卡记载，这尊像的身体于 1938 年在 Phnom Krom 南塔被发现，左肩已断；头部则在寺庙外圈东北角发现，损坏严重，后来由吴哥保护工坊修复。因此今天看到时，头身之间、表面风化和残缺处会有明显的时间层次。它的价值在于：吴哥造像中湿婆、毗湿奴更常见，四面梵天相对少见；而这件出处明确、时代较早，适合作为观察吴哥早期印度教神像样式的入口。",
+                  "观看要点：先看四面神像的头部结构，再看肩臂残缺处，最后沿下摆衣纹观察砂岩风化与修复后的拼合感。"
+            ],
+            "img": "assets/item08.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "09",
+            "title": "九曜/九神浮雕",
+            "en": "Nine Divinities",
+            "date": "10 世纪",
+            "style": "吴哥时期，Pre Rup 风格",
+            "place": "柬埔寨暹粒省 Eastern Mebon Temple",
+            "material": "砂岩",
+            "intro": "这是一条“九神/九曜”长浮雕，名卡把九位都列出来了：1 Surya 太阳，乘马车；2 Chandra 月亮，盘腿坐于台座；3 Yama 死神，南方守护，骑水牛；4 Varuna 雨神，西方守护，骑鹅；5 Indra 雷神，东方守护，骑象 Airavata；6 Kubera 财神，北方守护，骑马；7 Agni 火神，东南守护，骑公羊；8 Rahu，主蚀，藏身云中；9 Ketu，主彗星，骑狮。它不是单纯神像排队，而是把天体、方位、气候、生死和灾异信号编成一套宇宙管理表。",
+            "detail": [
+                  "形式上是连续的拱龛：每个小龛像一格神位，坐骑和持物是识别码。对高棉寺庙来说，这类浮雕像门口的历法与方位图：人穿门而入，先从宇宙秩序下面经过。",
+                  "它不是把神越做越繁，而是越做越像表格——每格一位，每位管一个方向或天象。",
+                  "观看要点：先用坐骑认人，不必先看脸；再把九位分成天体（日/月/Rahu/Ketu）与方位守护（Yama/Varuna/Indra/Kubera/Agni）；最后理解它的功能：把宇宙秩序横放在建筑上，像一条可读的“天象—方位带”。"
+            ],
+            "img": "assets/item09.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "10",
+            "title": "斑蒂丝蕾风格门楣",
+            "en": "Lintel with Indra, Shiva and Uma",
+            "date": "10 世纪",
+            "style": "吴哥时期，Banteay Srei 风格",
+            "place": "柬埔寨暹粒省 Puok District，Kok Angkanh Temple",
+            "material": "砂岩",
+            "intro": "这是一块门楣（lintel），不是独立圆雕，而是压在门洞上方、连接两侧门框并承接三角楣的横向构件。名卡把节目单写得很细：中央主场景是因陀罗 Indra——众神之王、东方守护神，骑白色三头象 Airavata，右手持金刚杵/雷霆 Vajra；Airavata 下方有 Kala 巨脸/怪面，用双手抓住狮子后腿。上层饰带中央则是湿婆与 Uma：湿婆侧坐在 Nandi 牛上，右手持三叉戟，身上缠蛇；Uma 左手持莲花苞；两旁有十二位坐隐士分布在装饰龛里，饰带两端各有一只灵动的 Garuda。",
+            "detail": [
+                  "Banteay Srei 风格的关键词是“密”和“细”：卷草、花蔓、小龛、兽面、神人全被编进一张蕾丝般的网，但不乱，因为中轴非常清楚——Indra/Airavata 压中央，Kala 在下方承接，Shiva-Uma 升到上带，Garuda 收两端。",
+                  "后者信息更密，水平展开，适合讲多神同框；前者更集中，常用一个主神定方位。",
+                  "观看要点：先锁定中央 Indra 三头象与右手 Vajra；再往下看 Kala 抓狮腿，理解它怎样把上方神力“压”进门洞；最后扫上层 Shiva-Uma-Nandi、十二隐士和两端 Garuda，感受 Banteay Srei 的细密度。"
+            ],
+            "img": "assets/item10.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "11",
+            "title": "毗湿奴界石",
+            "en": "Vishnu Boundary Stone",
+            "date": "10 世纪末—11 世纪初",
+            "style": "吴哥时期（名卡未细分到具体风格）",
+            "place": "柬埔寨暹粒省 Kok Po Temple",
+            "material": "砂岩",
+            "intro": "这块界石的重点不是一尊大毗湿奴，而是“ multiplication ”：名卡说，整块独石界石四面各有十七排四臂毗湿奴 Chaturbhuja 小像，合计 1020 尊。这个数字在高棉信仰里可能是吉祥数，用意是把毗湿奴的“全能/遍在”做成可见的密度——不是一尊神站在边界上，而是一千多尊重复出现，把边界变成被神格浸透的墙。",
+            "detail": [
+                  "顶部也不空：名卡说上有骑迦楼罗 Garuda 的毗湿奴，以及站立四臂持法器的毗湿奴，外面包着叶形饰框，饰框角端以昂起的五头那伽收束。也就是说，这块界石把好几个符号层叠起来：下部是无数小毗湿奴的“遍在”，顶部是骑鸟/站立的主尊“显现”，角部那伽负责守护和水域边界。功能仍是划界，但图像策略是累积与重复。",
+                  "12 末—13 初巴戎界石换成佛教禅定佛；17—18 后吴哥佛教界石则更残、更像碑。三块都不只是“石头”，而是各自时代给空间下定义的方式：谁在守边界，边界就属于哪套宇宙秩序。",
+                  "观看要点：先看四面密布的十七排小像，理解 1020 这个数字不是装饰而是“遍在”；再抬头看顶部 Garuda 与四臂毗湿奴的主尊层；最后找角部五头那伽，看它怎样把叶形饰框收成一个被守护的边界。"
+            ],
+            "img": "assets/item11.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "12",
+            "title": "那伽护佛",
+            "en": "Buddha in meditation sheltered by Naga",
+            "date": "11 世纪",
+            "style": "吴哥时期，巴普昂风格（Baphuon Style）",
+            "place": "柬埔寨暹粒省 Angkor Wat Temple",
+            "material": "砂岩",
+            "intro": "这尊像表现“那伽护佛”：佛陀结跏趺坐、双手作禅定印，身后多头那伽蛇冠高高张开，像屏障一样护住佛陀。题材来自佛传故事：释迦牟尼成道后，在第六周禅定时遇到暴雨，蛇王 Mucalinda 以身盘绕托住佛陀，并展开头冠为他遮风挡雨。画面重点不是暴风雨本身，而是佛陀在扰动中保持不动心。",
+            "detail": [
+                  "在高棉语境里，那伽不仅是佛教护法故事中的蛇王，也与水、土地、祖先和疆域意象相连；吴哥建筑中常见的蛇栏干、桥头那伽，都说明这个题材在本地有很强生命力。名卡标注它出自吴哥寺一带，但风格归为 11 世纪巴普昂风格，早于吴哥寺主体修建年代，因此可以理解为后来在吴哥寺区域供奉、迁移或留存下来的造像。",
+                  "观看要点：先看佛陀低垂的眼神和禅定手势，再看身后那伽头冠如何形成“靠背式”的垂直构图；巴普昂风格相较更早的巴肯风格更圆润、微笑更内敛。"
+            ],
+            "img": "assets/item12.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "13",
+            "title": "象头神",
+            "en": "Ganesha",
+            "date": "11 世纪",
+            "style": "吴哥时期，巴普昂风格（Baphuon Style）",
+            "place": "名卡标注 Preah Khan Temple, Siem Reap",
+            "material": "砂岩",
+            "intro": "这尊是 Ganesha，象头人身，名卡强调他是婆罗门教中最受敬奉的神之一：湿婆与帕尔瓦蒂之子，矮壮鼓腹，象头，坐骑是鼠；常见持物包括断牙、黑萝卜和甜碗。名字很多——Ganapati 有“群主/知识之神”意味，Vighanapati、Vighaneshvara 都和“障碍之主”有关；高棉语境里名卡说常称 Preah Phak Ganes 或 Phiganes，核心功能就是“移除障碍”。所以人们在开工、远行、求学、祭祀起始处敬他：先把路清开，再谈后面的事。",
+            "detail": [
+                  "这尊的巴普昂感很合适：圆鼓腹、短壮四肢、宽肩和稳坐姿，正好把 Ganesha 的“厚重”和“可亲”做出来。大耳外张，让头部轮廓几乎成一个圆牌。手臂和持物残缺，所以断牙、萝卜、甜碗这些只能依名卡复原；小鼠坐骑在画面里没看到，可能原本在基座或已失。",
+                  "它还有一个小年代错位：名卡写出土/关联 Preah Khan，却标 11 世纪 Baphuon。Preah Khan 主体是 12 末阇耶跋摩七世时期，因此更稳妥的理解是：这是较早的 Ganesha 像，后来进入或被登记于 Preah Khan 语境。这也常见——古寺空间会不断吸纳不同时代的神像。",
+                  "观看要点：先认象头、大耳、鼓腹三件事；最后记功能——Ganesha 不是“可爱象神”这么简单，而是开场、清障、知识与顺利的门槛神。"
+            ],
+            "img": "assets/item13.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "14",
+            "title": "三相神门楣",
+            "en": "Trimurti / Uma-Mahesvara Lintel",
+            "date": "名卡未拍到具体纪年与出处；按说明牌所称 Baphuon 风格，暂归 11 世纪",
+            "style": "吴哥时期，巴普昂风格（Baphuon Style）",
+            "place": "名卡未拍到可读出处",
+            "material": "目测砂岩，待名卡补证",
+            "intro": "这块门楣讲的是印度教三相神 Trimurti：创造 Brahma、毁灭邪恶与无明的 Shiva、维护 Vishnu。说明牌说，巴普昂风格里，叙事性门楣比纯缠枝装饰更流行；Shiva 右侧是站在莲台上的 Brahma，左侧是骑鸟王 Garuda、持那伽的 Vishnu。三主神被众神、侍从和细密边框围住，像把宇宙三功能——生、住、灭——压成一条横幅。",
+            "detail": [
+                  "Baphuon 这块更强调叙事队形，人物更大、更挺，中央 Shiva-Uma-Nandi 成为稳定焦点，左右 Brahma/Vishnu 像两翼把三相神平衡拉开。门楣的水平格式很适合这种“三神并置”：观众沿门洞横向走过时，等于从创造走到维护，再走向毁灭/转化。",
+                  "注意名卡把 Shiva 说成 destroyer，后面又补 of evil and ignorance：在高棉/印度教语境里，毁灭不是单纯破坏，而是清除障碍、终结旧状态，为更新开路。这样看，Trimurti 不是三个神抢地盘，而是宇宙运转的三段循环被安排在门口。",
+                  "观看要点：先找中央 Nandi 牛和并坐的 Shiva-Uma；再向右找莲台 Brahma，向左找 Garuda 与那伽的 Vishnu；最后体会 Baphuon 的“叙事门楣”——比 Banteay Srei 少一点蕾丝，多一点队列和主从。"
+            ],
+            "img": "assets/item14.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "15",
+            "title": "观世音/观自在菩萨",
+            "en": "Bodhisattva Lokesvara",
+            "date": "12 世纪",
+            "style": "吴哥时期，吴哥寺风格（Angkor Wat Style）",
+            "place": "柬埔寨暹粒省 Beng Mealea Temple，名卡称出自崩塌塔内，距吴哥核心区约 40 公里",
+            "material": "砂岩",
+            "intro": "这尊名卡定为 Lokesvara，也就是大乘佛教的慈悲菩萨，常对应观世音/观自在系统。关键标识在冠冕前方：名卡说正面发髻中有阿弥陀佛 Amitabha 小像，这是观世音系统最经典的身份线索。四臂持物有残损，不能只凭手势补全；但“慈悲菩萨”的气质已经被低眼、微笑和稳定盘坐撑住。",
+            "detail": [
+                  "名卡还强调它的混合性：发髻里有佛教的 Amitabha，额头又有湿婆式第三眼；身体比例采用印度教式的端正与王家层级，坐姿却像苦修仙人 Rishi 的冥想式，情绪温和。也就是说，这尊不是纯佛教或纯印度教，而是 12 世纪高棉把两种系统揉成一体：慈悲菩萨穿上了印度教神王的身体语言，佛教救度被装进王权美学的骨架。",
+                  "出土地 Beng Mealea 也有意味：名卡说它出自崩塌塔内。Beng Mealea 今天以坍塌、丛林和走廊废墟闻名，这尊完整度较高的菩萨像从崩坏中出现，就像从废墟里保留下一个仍然微笑的中心。它的“完整”和遗址的“破碎”形成反差。",
+                  "观看要点：先找冠冕前的 Amitabha 小像，这是身份钥匙；再看额上第三眼，理解名卡说的 Hindu-Mahayana 混合；最后看 torso——胸膛饱满、珠宝规整、盘坐稳定，慈悲不是柔弱，而是一种有王权秩序的安定。"
+            ],
+            "img": "assets/item15.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "16",
+            "title": "药师佛",
+            "en": "Bhaisajyaguru, Buddha of Healing",
+            "date": "12 世纪末—13 世纪初",
+            "style": "吴哥时期，巴戎风格（Bayon Style）",
+            "place": "柬埔寨暹粒省吴哥地区 Srah Srang",
+            "material": "砂岩",
+            "intro": "名卡把这尊定为药师佛 Bhaisajyaguru，也就是“医治之佛”。在大乘佛教里，药师佛核心不是神通治病这么简单，而是把疾苦、寿命、业障和解脱连在一起：他照护众生身心之苦，也象征把“病”从身体层面推进到烦恼层面。图像上常见药钵、药果或持物，但这尊照片里双手近禅定印，具体持物不清楚，所以身份主要依名卡，不宜凭手印硬推。",
+            "detail": [
+                  "它落在巴戎风格时期很有语境。阇耶跋摩七世时期，大乘佛教与护国、救苦、公共工程紧密相连；文献和传统叙述中常提到他修建医院、道路、驿站等福利设施。把一尊“医治之佛”放在这个时代，就不会只是宗教图像，而像一种政治-宗教语言：王权、佛教慈悲和疗愈秩序被绑在一起。出土地 Srah Srang 是吴哥东部的皇家浴池/水库一带，也让它和水、净化、公共仪式空间产生联想。",
+                  "造型上看，它仍然很“巴戎”：宽肩厚胸，脸部饱满，眼睑低垂，嘴角收出一个安静微笑；袈裟从左肩斜披，边缘珠纹/刻线把身体切成稳定区块。不讲过去世故事，而是把“疗愈”凝成一个安定面容。",
+                  "观看要点：先看脸——巴戎式低眉微笑；再看斜披袈裟的珠边如何把身体分成左右；最后想它的时代语境：医治之佛出现在阇耶跋摩七世前后，和救苦、公共医疗、王权合法性是同一套语言。"
+            ],
+            "img": "assets/item16.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "17",
+            "title": "Sumedha 隐士",
+            "en": "Sumedha Hermit",
+            "date": "12 世纪末—13 世纪初",
+            "style": "吴哥时期，巴戎风格（Bayon Style）",
+            "place": "柬埔寨暹粒省 Phnom Veak",
+            "material": "砂岩",
+            "intro": "这件横躺的石像不是卧佛，而是 Sumedha 隐士：名卡讲的是释迦牟尼过去世的故事。Sumedha 本是富有的婆罗门，后来舍弃财富，到森林里做苦修隐士，求取觉悟。一天，他看到众人正在为过去佛 Dipankara（燃灯佛）修路；Dipankara 将离开 Sudasana 寺前往 Amaravati 城。Sumedha 也加入修路，但路还没修好，Dipankara 与弟子已经到了泥泞处。Sumedha 于是俯身躺下，把自己当作桥，让 Dipankara 和弟子从他身上走过。Dipankara 随即授记：这位苦修隐士未来将成为 Siddhartha Gautama，也就是释迦牟尼。",
+            "detail": [
+                  "这个故事的关键不是“躺”，而是三个佛教概念叠在一起：布施/奉献，把自己身体放到泥里；誓愿与修行，过去世的因连接未来成佛；授记，Dipankara 预言他将来成佛。",
+                  "放在巴戎风格时期看也合理。12 末—13 世纪初的吴哥佛教艺术不只表现成佛后的释迦牟尼，也重视菩萨道、过去世和救度叙事。石像做得拉长、压低，细节不多，正好服务“以身为桥”的动作：身体本身就是道路。旁边名卡还配了现代绘画/图像，把同一故事用更易懂的方式再讲一遍。",
+                  "观看要点：先纠正直觉——这不是涅槃卧佛；再看身体为什么被做得特别长，那是在“搭桥”；"
+            ],
+            "img": "assets/item17.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "18",
+            "title": "佛教三尊",
+            "en": "Buddhist Triad",
+            "date": "12 世纪末—13 世纪初",
+            "style": "吴哥时期，巴戎风格（Bayon Style）",
+            "place": "柬埔寨暹粒省 Bayon Temple",
+            "material": "砂岩",
+            "intro": "这是一件巴戎时期的佛教三尊：中央坐佛结跏趺坐、双手禅定，压在多层莲座/基座上；左右各有一尊立像胁侍，形成中尊高、两侧低、背屏连成一体的构图。名卡只写 Buddhist Triad，没有逐一点名胁侍；在高棉巴戎语境里，这类三尊常被解释为佛与观音、般若佛母等大乘胁侍组合，但我不把左右身份定死，重点放在“三尊结构”本身。",
+            "detail": [
+                  "中央坐佛背后的背屏很值得看：外轮廓像火焰或菩提叶，边缘似乎叠有蛇首/小圆突，把那伽、背光和圣树意象压进同一块石板。也就是说，它不是简单给佛加一个背景，而是把保护、觉悟和神圣空间一起做成一个壳。左右立像一身偏男相，一身偏女相，衣饰和站姿更直，像两扇“门”，把中央禅定佛夹在中间。",
+                  "而这件三尊把主尊、胁侍、背屏和基座合成一个完整礼拜单元。它服务的不只是观看，而是礼拜时的主从秩序：中间是定与觉，两侧是慈悲与智慧一类的辅助力量，背后那伽/背屏负责护持。",
+                  "观看要点：先看中轴——莲座、禅定手、低垂眼睑如何稳住全局；再看左右立像的性别气质和直身站姿怎样夹出中央；最后看背屏边缘，把蛇首、火焰、叶形当作一个混合符号，不必逐项认全。"
+            ],
+            "img": "assets/item18.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "19",
+            "title": "南 Srah Srang 那伽护佛",
+            "en": "Buddha Sheltered by Naga",
+            "date": "12 世纪末—13 世纪初",
+            "style": "吴哥时期，巴戎风格（Bayon Style）",
+            "place": "柬埔寨暹粒省 Southern Srah Srang",
+            "material": "砂岩",
+            "intro": "这尊可以作为“那伽护佛”的成熟样本：佛陀结跏趺坐，双手禅定印，身下那伽盘成两层厚基座，背后多头蛇冠张开成圆背屏。佛脸是典型巴戎式安静微笑，眼睑低垂，肩胸饱满；蛇身不再只是背景，而是用鳞片、弧线和层叠体积，把佛陀稳稳托住。题材仍是蛇王 Mucalinda 在佛成道后第六周禅定时以身遮护，但这里把故事做成了完美对称的礼拜图像。",
+            "detail": [
+                  "出土地 Southern Srah Srang 很有意味。Srah Srang 是吴哥东部的皇家浴池/水库空间，和水、净化、仪式密切相关；那伽本身又是水与地下力量的象征。把一尊那伽护佛放在这样的环境里，图像和场所会互相加强：佛在水边入定，蛇神从水中托起佛陀，保护也净化。",
+                  "11 世纪巴普昂版本更克制，蛇冠像背景屏风；这尊巴戎版本达到成熟平衡，佛与蛇合成一个完整构图；后吴哥木雕再把它变得更温润、更民间化。",
+                  "观看要点：先看佛脸——巴戎微笑如何压住全像；再看蛇身两层盘绕怎样形成“活基座”；最后看蛇冠边缘与鳞片，理解为什么那伽在这里既护法，也像背光和王权/水域力量的符号。"
+            ],
+            "img": "assets/item19.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "20",
+            "title": "毗湿奴宇宙眠",
+            "en": "The Lord of Narayana/Vishnu in cosmic sleep",
+            "date": "12 世纪末—13 世纪初",
+            "style": "吴哥时期，巴戎风格（Bayon Style）",
+            "place": "名卡标注 Unknown Provenance，出土地点不详",
+            "material": "砂岩",
+            "intro": "这件题材是“宇宙眠”里的 Narayana/Vishnu。名卡把神话讲得很完整：在两个宇宙周期之间，毗湿奴躺在无尽蛇 Ananta，也就是万物毁灭后仍然留下的 Shesha 身上，漂浮在原初水上；当新宇宙周期要开始，一朵金莲从毗湿奴脐中生出，花开后出现梵天，象征新创造。高棉艺术里，吉祥天女 Lakshmi 常坐在毗湿奴脚边，有时 Lakshmi 与大地女神 Bhumidevi 会同现。",
+            "detail": [
+                  "它的厉害处在于把“时间”做成图像：横躺的毗湿奴不是休息，而是处在旧宇宙已灭、新宇宙未生的缝隙里；身下的那伽不是普通蛇，而是“无尽/剩余”的化身，托住毁灭之后仍然存在的东西；脐中莲花把下一段创造接出来。也就是说，这块浮雕讲的不是某个动作，而是宇宙关机与重启之间的待机画面。",
+                  "现场看要有耐心：风化把很多细节磨平，照片里更容易先读名卡再回石面找位置。左侧小像可对应脚边女神系统；中央横长身体是毗湿奴；右侧断裂处原本可能是多头那伽或侍从群。不要执着于每一张脸，重点是横轴、脐莲和蛇身这三件叙事支点。",
+                  "观看要点：先抓“横躺=宇宙间隙”，再找脐中莲花→梵天的创造线，最后看脚边女神与蛇身如何把毁灭后的水世界托住。它和佛教涅槃卧像外形相近，但方向相反：佛教讲出离与寂灭，这里讲毁灭后再生的宇宙循环。"
+            ],
+            "img": "assets/item20.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "21",
+            "title": "界石",
+            "en": "Boundary Stone",
+            "date": "12 世纪末—13 世纪初",
+            "style": "吴哥时期，巴戎风格（Bayon Style）",
+            "place": "名卡标注 Unknown Provenance，出土地点不详",
+            "material": "砂岩",
+            "intro": "这是一件巴戎风格的砂岩界石，时代落在阇耶跋摩七世前后，也就是吴哥造像中佛教气息最强的阶段之一。界石的功能首先是“划界”：标记神圣空间、寺院范围或 ritual 区域的边界，让人知道从哪里开始进入被保护、被净化的空间。它不一定是供奉主尊，却决定了空间秩序。",
+            "detail": [
+                  "这根界石做成圆顶柱状，外壁分层：顶部是饱满的子弹形圆顶，中间有环带和瓣纹，下部柱身开龛刻佛。照片正面是一尊结跏趺坐、双手作禅定印的佛陀；侧面还能看到同类坐佛重复出现，说明它可能沿圆周布置多尊佛，以“环绕”的方式守住边界。巴戎时期常见这种把佛教图像密集安排到建筑、回廊、塔面和边界构件上的做法：佛不只在中心，也在四方。",
+                  "它的圆顶外形容易让人联想到印度教林伽，但名卡明确写作 boundary stone，柱身又是禅定佛，所以更稳妥的理解是：这是一件佛教语境中的边界标志，而不是林伽。由于出土地点不详，不能把它精确接回某一座寺庙；但风格、年代和图像仍然能告诉我们，12 末—13 世纪初的吴哥佛教空间里，“边界”本身也被佛的象征力量填满。",
+                  "观看要点：先看正面禅定佛的稳定三角构图；再绕着想侧面是否还有相同坐佛；最后看顶部圆顶、环带和莲瓣/齿纹基座如何把一个功能性石柱做成一件小型纪念物。"
+            ],
+            "img": "assets/item21.jpg"
+      },
+      {
+            "period": "Angkorian Period",
+            "periodCn": "吴哥时期",
+            "order": "22",
+            "title": "神面头像",
+            "en": "Head of Divinity",
+            "date": "12 世纪末—13 世纪初",
+            "style": "吴哥时期，巴戎风格（Bayon Style）",
+            "place": "柬埔寨暹粒省 Angkor Thom，Death Gate",
+            "material": "砂岩",
+            "intro": "这件最直观的震撼是“脸不止一张”：下层四面朝四方，上层还叠着较小的面，像把一座门楼/塔面的垂直结构切成一段搬进展厅。名卡谨慎地只写 Head of Divinity，没有说它是哪位神；在巴戎语境里，这类平静微笑、低垂眼睑、面向四方的巨脸常被联想到观世音/护世方向神，也与阇耶跋摩七世时期的王权—佛教图像相连，但这件标签没点名，所以按“多面神面/城门面塔残件”讲最稳。",
+            "detail": [
+                  "出土地 Death Gate 给了它空间功能：吴哥城城门不是单纯出入口，而是阈值——城内/城外、秩序/荒野、王权/外来者在这里分开。多面脸朝外看四方，既像守护，也像宣告：无论你从哪一面接近，都被同一双低垂的眼睛看见。它把“门”从通道变成一张有表情的脸。",
+                  "造型上很巴戎：宽脸、厚唇、微闭眼、若有似无的笑；但残损让鼻部塌陷、嘴角变钝，反而削弱了神秘感，增加一种被风雨磨过的沉默。分层叠脸也说明它原本可能属于更高大的门塔局部，不是独立头像；现在只剩“表情密度”最强的一段。",
+                  "观看要点：先绕着想四个方向各有一张脸；再看上下两层如何把“门塔”压缩成一段；"
+            ],
+            "img": "assets/item22.jpg"
+      },
+      {
+            "period": "Post-Angkorian Period",
+            "periodCn": "后吴哥时期",
+            "order": "23",
+            "title": "佛足印石",
+            "en": "Buddhapada",
+            "date": "16 世纪",
+            "style": "后吴哥时期（Post-Angkorian Period）",
+            "place": "柬埔寨暹粒省吴哥城 Bayon Temple",
+            "material": "砂岩",
+            "intro": "Buddhapada 来自梵语，意思是佛陀的足或足迹。它不是佛陀的人形像，而是用脚印来代表佛陀。古印度早期佛教艺术中，曾长期用法轮、菩提树、宝座、窣堵坡和佛足印等符号来暗示释迦牟尼的存在；这类“非人形”的表达方式，后来在东南亚上座部佛教语境中继续发展。",
+            "detail": [
+                  "这方佛足印石表面以中央大莲花为核心，分成十层排列吉祥图案。名卡大意是：上部两层接近天堂，可见神祇与花卉；第三层是宇宙、日月星辰；第四至六层多为陆上动物，如鸟、蛇、象；第七至十层进入水世界，有睡莲、河流、海洋和鳄鱼。古巴利文本《Buddhapādamangala》说佛足底有一百零八种吉祥相；这件不足一百零八，但仍按等级组织，像把三界众生收进佛陀足底。",
+                  "观看要点：左端圆凸是脚趾；先找中央大莲花，再按“天堂—宇宙—动物—水世界”的顺序读格中图案。它出自巴戎寺一带，却是 16 世纪后吴哥作品，说明吴哥古迹在王朝衰落之后仍持续作为佛教活动场所被使用。"
+            ],
+            "img": "assets/item23.jpg"
+      },
+      {
+            "period": "Post-Angkorian Period",
+            "periodCn": "后吴哥时期",
+            "order": "24",
+            "title": "卧佛",
+            "en": "Reclining Buddha",
+            "date": "16 世纪",
+            "style": "后吴哥时期（Post-Angkorian Period）",
+            "place": "柬埔寨暹粒省 Angkor Wat Temple",
+            "material": "砂岩",
+            "intro": "这尊卧佛表现佛陀侧身而卧的姿态：头枕于右手/枕座之上，身体水平延展，双脚相叠，面部带微笑，螺发与长耳垂仍然是可辨识的佛陀特征。在东南亚上座部佛教语境里，卧佛最常让人联想到释迦牟尼在拘尸那揭罗入灭前的最后时刻，也就是“般涅槃/入灭”场景；但在部分传统中，它也可被理解为佛陀休憩或示现安详卧姿。无论采用哪一种读法，这类造像的重点都不是痛苦，而是圆满、安静与放下。",
+            "detail": [
+                  "名卡标注它出自吴哥寺一带，年代却是 16 世纪后吴哥时期，这一点很有历史意味：吴哥寺主体建于 12 世纪，最初与印度教毗湿奴信仰关系密切；到了后吴哥时期，柬埔寨宗教重心已经明显转向上座部佛教，古老寺庙空间并没有被废弃，而是继续被新的佛教实践使用。",
+                  "观看要点：先看头部——螺发、微笑、长耳垂和枕臂姿势决定了“安详”的基调；再看身体比例，躯干被处理得长而平稳，衣纹只用少量刻线提示；最后注意基座与石面风化，后吴哥时期的砂岩造像常有这种朴素、厚重、少装饰的质感。"
+            ],
+            "img": "assets/item24.jpg"
+      },
+      {
+            "period": "Post-Angkorian Period",
+            "periodCn": "后吴哥时期",
+            "order": "25",
+            "title": "佛头",
+            "en": "Head of Buddha",
+            "date": "16—17 世纪",
+            "style": "后吴哥时期（Post-Angkorian Period）",
+            "place": "柬埔寨暹粒省 Angkor Wat Temple",
+            "material": "砂岩；表面有金漆/彩绘与黑色残留",
+            "intro": "这是一件后吴哥时期的砂岩佛头，名卡标 16—17 世纪、出自吴哥寺。它本来应属于一尊更大的立像或坐像，现在只剩头部，反而让所有注意力集中到表情：螺发一颗颗排到头顶，长耳垂落，眼睑低垂，嘴角仍然上扬。面部破损集中在鼻梁、脸颊和表层，像被时间咬过，但“微笑—低眼”的内核没丢，所以残破不显惨，反而更安静。",
+            "detail": [
+                  "表面那层金色、红色和黑色交错很重要。它说明石胎之外曾经过妆点：可能是金漆、彩绘、供奉触摸和氧化剥落叠在一起。后吴哥时期的吴哥寺已从印度教纪念建筑转为佛教活动场所，这类佛头就是转换期的实物痕迹：老空间不推倒，新信仰进来，旧石像也可能被重新妆点、继续礼拜。",
+                  "它没有复杂手印和叙事，只剩表情，但表情已经足够：低眼不是闭死，微笑不是喜庆，而是一种从残缺里留下来的安定。",
+                  "观看要点：先看螺发、长耳、低眼、微笑四件佛陀标识；再看金/红/黑表层怎样在石胎上剥落；最后把它当“吴哥寺佛教化”的证据——不是新寺，而是旧空间被后世佛教重新点亮。"
+            ],
+            "img": "assets/item25.jpg"
+      },
+      {
+            "period": "Post-Angkorian Period",
+            "periodCn": "后吴哥时期",
+            "order": "26",
+            "title": "佛教界石",
+            "en": "Buddhist Boundary Stone",
+            "date": "17—18 世纪",
+            "style": "后吴哥时期（Post-Angkorian Period）",
+            "place": "名卡标注 Unknown Provenance，出土地点不详",
+            "material": "砂岩",
+            "intro": "这是第二块“界石”，但时代一下落到后吴哥 17—18 世纪。名卡明确写 Buddhist Boundary Stone，说明它仍承担划分佛教圣域/寺院空间的功能；不同的是，它比 12 末—13 世纪初那块巴戎界石更残、更粗粝，更像一块被时间和环境反复侵蚀过的石碑。下部佛龛里一尊结跏趺坐佛还清楚，胸部和手部有缺损；上部浮雕已经很难逐个辨认，只能看出曾有立像或装饰层级。",
+            "detail": [
+                  "巴戎那块更圆整，像把多尊禅定佛安排到柱面；这块后吴哥界石更像竖龛碑，把佛供在下方，上方内容随风化退成影子。材质仍是砂岩，也提示我们：后吴哥时期虽然佛像常用木、金属，界石、建筑构件这类需要立在空间里的东西，还是更适合石材。",
+                  "表面的黑金交错不要急着当原色：那更可能是风化、污渍、苔痕、旧涂层与光线共同造成的皮壳。它的价值恰恰在这种“被用过很久”的状态——边界石不是展柜里的纯艺术品，而是曾经插在地上、标记内外、承受风雨的空间工具。",
+                  "观看要点：先读下部佛龛，确认这是佛教空间边界；再往上扫，接受上部不可全读，重点看剩余层次；"
+            ],
+            "img": "assets/item26.jpg"
+      },
+      {
+            "period": "Post-Angkorian Period",
+            "periodCn": "后吴哥时期",
+            "order": "27",
+            "title": "禅定佛",
+            "en": "Buddha in meditation",
+            "date": "17—18 世纪",
+            "style": "后吴哥时期（Post-Angkorian Period）",
+            "place": "名卡标注 Unknown Provenance，出土地点不详",
+            "material": "铜合金（Copper Alloy）",
+            "intro": "这是一尊后吴哥时期的铜合金禅定佛。佛陀结跏趺坐，双手在腹前叠放作禅定印，身体比例宽阔，肩胸厚实，面部低眉微笑。",
+            "detail": [
+                  "构图很稳：双腿盘成宽阔基座，双手收束在中线，视线低垂，所有力量都往内收。它不靠复杂叙事，也不靠那伽、背光或多方构图，而是把“定”本身做成形式。基座正面有一块半圆形垂布/饰板，上面似乎铸有或刻有高棉文与花纹；照片里不能可靠释读，但这类铭文常见于供养题记、发愿文或寺藏品标记，若能拍更清晰正面铭文，值得单独记录。",
+                  "木造像温润、易残；铜合金更耐久，适合寺院长期供奉，表面包浆会把年代感直接留在皮肤上。",
+                  "观看要点：先看禅定印和中线如何压住全身；再看宽膝、厚肩和低垂眼睑造成的稳定感；最后靠近基座正面，留意铭文与半圆饰板——如果能读清，往往比佛像样式更接近供养人和年代信息。"
+            ],
+            "img": "assets/item27.jpg"
+      },
+      {
+            "period": "Post-Angkorian Period",
+            "periodCn": "后吴哥时期",
+            "order": "28",
+            "title": "银禅定佛",
+            "en": "Buddha in meditation",
+            "date": "17—18 世纪",
+            "style": "后吴哥时期（Post-Angkorian Period）",
+            "place": "名卡标注 Unknown Provenance，出土地点不详",
+            "material": "银（Silver）",
+            "intro": "这尊银禅定佛最抓眼的是材质：不是砂岩，也不是木，而是银。佛陀结跏趺坐，双手在腹前作禅定印，袈裟从左肩斜披，衣纹用一排排流畅刻线压出来，下摆和底座还有细密花叶/珠点装饰，工艺比大型石像更偏“金工”。",
+            "detail": [
+                  "构图仍然是“收”：身体成正三角，手与腹脐对齐，视线低垂。银色氧化层让它看起来近乎黑色，但正因此，磨亮的手指和面部会像从暗处浮出来。",
+                  "头顶那些细枝小叶要特别注意：名卡没有写，可能是后配的供养装饰，也可能意在提示菩提树/觉悟语境；从照片看它们轻、细、易损，和厚重佛身形成反差。不要把它当成判断年代的硬依据，更适合当成展陈或后世添加的观察点。",
+                  "观看要点：先看银面氧化造成的黑白节奏；再看袈裟斜披线与下摆刻花怎样把身体分区；最后看头顶枝叶——轻、细、向外伸展，刚好打破禅定像的封闭感。"
+            ],
+            "img": "assets/item28.jpg"
+      },
+      {
+            "period": "Post-Angkorian Period",
+            "periodCn": "后吴哥时期",
+            "order": "29",
+            "title": "木雕那伽护佛",
+            "en": "Buddha Sheltered by Naga",
+            "date": "17—19 世纪",
+            "style": "后吴哥时期（Post-Angkorian Period）",
+            "place": "名卡标注 Unknown Provenance，出土地点不详",
+            "material": "木",
+            "intro": "这尊还是“那伽护佛”题材：佛陀结跏趺坐，双手在腹前作禅定印，身下是层层盘绕的那伽蛇身，背后多头蛇冠张开成圆拱，像一顶活的华盖。故事仍然是蛇王 Mucalinda 在佛陀成道后第六周禅定时，以身为座、以头冠遮雨；",
+            "detail": [
+                  "巴普昂时期的砂岩版本更克制、厚重，蛇冠像石碑一样竖在身后；这件后吴哥木雕则更圆滑、更有工艺感：蛇身一圈圈盘成宽厚基座，鳞片被刻成整齐的菱形网，木面被打磨得发红发亮，视觉上更接近民间供奉器的温润感。",
+                  "名卡把年代放在 17—19 世纪，出土地点不详。这个跨度本身说明后吴哥佛教造像延续时间很长，而那伽护佛题材一直没有消失：它既能讲佛传故事，也贴合柬埔寨对水、蛇神、土地保护的地方想象。木材质让它更易进入寺院与家庭式供奉空间，但也更脆弱；这尊保存相对完整，所以能清楚看到漆光、刀工和圆形构图。",
+                  "观看要点：先看佛陀小小的禅定手势如何压住整个大构图；再看蛇身三层盘绕怎样形成稳定基座；最后看背后多头蛇冠围出的“圆光”效果——它既护法，也像给佛陀加了一圈木刻背光。"
+            ],
+            "img": "assets/item29.jpg"
+      },
+      {
+            "period": "Post-Angkorian Period",
+            "periodCn": "后吴哥时期",
+            "order": "30",
+            "title": "四佛同坐",
+            "en": "Four Seated Buddhas",
+            "date": "18—19 世纪",
+            "style": "后吴哥时期（Post-Angkorian Period）",
+            "place": "名卡标注 Unknown Provenance，出土地点不详",
+            "material": "金属，表面呈金色，可能经后世重漆/重装",
+            "intro": "这件作品把四尊坐佛背对背合成一体，分别面向四方。它不是四件独立佛像临时拼在一起，而是一个“向四方展开”的整体：无论观者从哪一面走近，都会遇到一张正面的佛脸。名卡只给出 Four Seated Buddhas，没有指定是某一组特定佛；所以更稳妥的读法是空间性的——四面向外，象征佛法、觉知或庇佑覆盖四方，而不是强行指认为某一固定组合。",
+            "detail": [
+                  "从照片看，佛像都是结跏趺坐，螺发、长耳垂、微笑和金色表面都很醒目；至少一面双手收于腹前，接近禅定印，另一面双手抬至胸前，像是说法/转法轮一类手势，但金属手部细节和反光较强，不宜把每一面手印定死。眼、眉、红唇黑亮，金色表面也很新亮，这类后吴哥金属/漆金像常经历后世重漆、重装或长期供奉触摸，未必保留最初表面。",
+                  "只是材料从木到金属，视觉从温润刀工变成明亮金色。四佛同坐的构图也很有展陈效果：它像一个小型中心塔，把“佛”从单一正面变成环绕式存在。",
+                  "观看要点：先绕着想四个方向都各有一张正脸；再比较不同面的手势是否相同；最后看金色表面的新旧层次——亮金、红唇、黑眼线可能很抓眼，但也提示它可能被后世重新妆点过。"
+            ],
+            "img": "assets/item30.jpg"
+      },
+      {
+            "period": "Post-Angkorian Period",
+            "periodCn": "后吴哥时期",
+            "order": "31",
+            "title": "佛陀降魔",
+            "en": "Buddha Triumphing Over Mara",
+            "date": "19 世纪",
+            "style": "后吴哥时期（Post-Angkorian Period）",
+            "place": "名卡标注 Unknown Provenance，出土地点不详",
+            "material": "砂岩；表面有金漆/彩绘/镶嵌感装饰，可能经后世重装",
+            "intro": "这尊名卡定为 Buddha Triumphing Over Mara，关键在手印：右手下垂触地，左手仍置于腹前。这是“触地印/降魔印”，对应成道前夜魔王 Mara 来扰——魔女诱惑、魔军威胁，释迦牟尼以右手触地，请大地作证自己累世修行与功德，于是魔障退散。和禅定佛把力量往内收不同，降魔像是把内在坚定转化为一个对外动作：一手指地，天地为证。",
+            "detail": [
+                  "它的时代气质也很后吴哥：砂岩仍是骨，但外面被金、红、蓝、黑彩绘层层包裹，基座做成高台，正面垂布、卷草、佛龛、小兽或狮子纹样都很热闹。佛身相对简洁，火焰状肉髻和深蓝螺发把视线往上提；真正“戏剧化”的部分让给基座和触地手势。表面金亮与彩绘不一定是最初面貌，19 世纪及以后寺院供养中常会重漆、贴金、修补，所以要把“石胎年代”和“表面妆点层次”分开看。",
+                  "观看要点：先锁定右手触地，这是身份的钥匙；再看左手仍保持禅定，说明外在降魔不破坏内在安定；最后看基座彩绘与垂布，把它当成 19 世纪东南亚佛寺装饰趣味的样本，而不只是佛像附属。"
+            ],
+            "img": "assets/item31.jpg"
+      }
+];
+
+    const timeline=document.getElementById('timeline');let lastPeriod='';
+    items.forEach((item)=>{if(item.period!==lastPeriod){const p=document.createElement('section');p.className='period';p.innerHTML=`<h2 class="period-title">${item.periodCn}</h2><p class="period-sub">${item.period}</p>`;timeline.appendChild(p);lastPeriod=item.period}
+      const el=document.createElement('article');el.className='object';el.innerHTML=`<div class="image-wrap" data-img="${item.img}" data-cap="${item.title} · ${item.date} · ${item.style}"><img src="${item.img}" alt="${item.title}" loading="lazy" onload="this.classList.add('loaded')" onerror="this.style.opacity=1" /></div><div class="meta"><div class="num">${item.order}</div><h2>${item.title}<span class="en">${item.en}</span></h2><dl><dt>年代</dt><dd>${item.date}</dd><dt>风格</dt><dd>${item.style}</dd><dt>出处</dt><dd>${item.place}</dd><dt>材质</dt><dd>${item.material}</dd></dl><p class="intro">${item.intro}</p><details><summary>展开细读</summary>${item.detail.map(p=>`<p>${p}</p>`).join('')}</details></div>`;timeline.appendChild(el)});
+    const lightbox=document.getElementById('lightbox'),lightboxImg=document.getElementById('lightboxImg'),lightboxCap=document.getElementById('lightboxCap'),close=document.getElementById('close');
+    document.querySelectorAll('.image-wrap').forEach(wrap=>{wrap.addEventListener('click',()=>{lightboxImg.src=wrap.dataset.img;lightboxImg.alt=wrap.dataset.cap;lightboxCap.textContent=wrap.dataset.cap;lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false')})});
+    function hide(){lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true');lightboxImg.src=''}close.addEventListener('click',hide);lightbox.addEventListener('click',(e)=>{if(e.target===lightbox)hide()});window.addEventListener('keydown',(e)=>{if(e.key==='Escape')hide()});
+  </script>
+</body>
+</html>
