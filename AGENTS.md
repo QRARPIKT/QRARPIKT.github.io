@@ -80,6 +80,10 @@ python3 scripts/build_site.py --book-dir incoming/{book-id} --site-dir . \
 6. **TOC 不自动更新**：章题/序号体系一变，作品页目录必须手工同步。
 7. **travel 私密分区**：`travel/` 属人工领地，脚本不碰；公开页面（根页/bunko/文库各页）永不链接它，travel 页也不回链公开区；新增同类私密分区（如日记）同样处理，且必须带 `noindex`、不写进 robots.txt（robots.txt 会公开广告路径）。
 
+## 主业提醒
+
+travel 是用户个人领地、低频维护；本站 agent 的主业是文库收稿→校验→重建→archive 流水线，travel 工作不得影响文库规矩（尤其「永不改正文内容」与 git 边界）。
+
 ## 现有书籍（book-id）
 
 | book-id | 书名 | 章数 | 序号体系与格式注意 |
