@@ -6,6 +6,13 @@
 <meta name="robots" content="noindex,nofollow">
 <title>吴哥 · 旅行记录</title>
 <link rel="stylesheet" href="../../assets/style.css?v=20260830-7">
+<style>
+.quick-icons{display:flex;gap:1.2rem;justify-content:center;margin-bottom:3rem}
+.quick-icons a{width:96px;height:68px;display:flex;align-items:center;justify-content:center;background:var(--paper);border:1px solid var(--line);transition:border-color .4s,box-shadow .4s}
+.quick-icons a:hover{border-color:var(--accent-soft);box-shadow:0 3px 14px rgba(0,0,0,.07)}
+.quick-icons svg{width:26px;height:26px;stroke:var(--ink-soft);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
+.quick-icons a:hover svg{stroke:var(--ink)}
+</style>
 </head>
 <body>
 <main>
@@ -14,12 +21,24 @@
     <div class="meta">柬埔寨 · 暹粒</div>
   </div>
 
-  <a class="home-entry" href="hotel.html">
-    <h2>住在暹粒</h2>
-  </a>
-  <a class="home-entry" href="restaurants.html">
-    <h2>食在暹粒</h2>
-  </a>
+  <div class="quick-icons">
+    <a href="hotel.html" aria-label="住在暹粒" title="住在暹粒">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7"/>
+        <path d="M3 18h18"/>
+        <path d="M3 21v-3M21 21v-3"/>
+        <path d="M7 9V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/>
+      </svg>
+    </a>
+    <a href="restaurants.html" aria-label="食在暹粒" title="食在暹粒">
+      <svg viewBox="0 0 24 24">
+        <path d="M6 2v6c0 1.1.9 2 2 2s2-.9 2-2V2"/>
+        <path d="M8 2v20"/>
+        <path d="M17 2v20"/>
+        <path d="M17 2c-2 3-3 5.5-3 8.5V12h3"/>
+      </svg>
+    </a>
+  </div>
   <a class="home-entry" href="museum.html">
     <span class="num">壹</span>
     <h2>博物馆</h2>
