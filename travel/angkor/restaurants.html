@@ -7,24 +7,24 @@
 <title>食在暹粒 · 吴哥 · 旅行记录</title>
 <link rel="stylesheet" href="../../assets/style.css?v=20260830-7">
 <style>
-.notes .eatery{margin:1.2rem 0;border:1px solid var(--line);background:var(--paper);padding:1.2rem 1.4rem;transition:border-color .4s,box-shadow .4s}
-.eatery:hover,.eatery.open{border-color:var(--accent-soft);box-shadow:0 3px 14px rgba(0,0,0,.07)}
-.eatery-head{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;cursor:pointer}
-.eatery-head h2{margin:0;font-size:1.05rem}
-.eatery-head .en{font-size:.8rem;color:var(--ink-soft);letter-spacing:.04em}
-.eatery-head .tag{margin-left:auto;font-size:.7rem;color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:.12rem .6rem;letter-spacing:.12em;white-space:nowrap}
-.eatery-head .arrow{font-size:.7rem;color:var(--ink-soft);transition:transform .4s;margin-left:.3rem}
+.notes .eatery{margin:0;border-bottom:1px solid var(--line);transition:border-color .4s}
+.eatery:first-of-type{border-top:1px solid var(--line)}
+.eatery:hover,.eatery.open{border-bottom-color:var(--accent-soft)}
+.eatery-head{cursor:pointer;text-align:center;padding:1.7rem 0}
+.eatery-head h2{margin:0;font-size:1.15rem;letter-spacing:.35em;margin-right:-.35em}
+.eatery-head .en{display:block;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);margin-top:.4rem}
+.eatery-head .tag{display:inline-block;margin-top:.7rem;font-size:.68rem;color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:.1rem .6rem;letter-spacing:.14em}
+.eatery-head .arrow{display:block;margin:.5rem auto 0;font-size:.65rem;color:var(--ink-soft);transition:transform .4s}
 .eatery:hover .arrow,.eatery.open .arrow{transform:rotate(180deg)}
 .eatery-body{max-height:0;opacity:0;overflow:hidden;transition:max-height .7s ease,opacity .5s ease}
 .eatery:hover .eatery-body,.eatery.open .eatery-body{max-height:6000px;opacity:1}
-.eatery-body p:first-child{margin-top:1.1rem}
+.eatery-body p:first-child{margin-top:.6rem}
 .food-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.3rem 0}
 .food-grid figure{margin:0}
 .food-grid img{width:100%;display:block;border:1px solid var(--line)}
 .food-grid figcaption{font-size:.75rem;color:var(--ink-soft);margin-top:.4rem;letter-spacing:.04em;line-height:1.6}
 @media (max-width:640px){
   .food-grid{grid-template-columns:1fr}
-  .eatery-head .tag{margin-left:0}
 }
 .backlink{display:block;font-size:.8rem;margin-bottom:2rem}
 </style>
@@ -36,8 +36,6 @@
     <h1>食在暹粒</h1>
     <div class="meta">柬埔寨 · 暹粒 · 餐食</div>
   </div>
-
-  <p>白天看庙，晚上下馆子。在暹粒去了五家，其中一次踩了雷。</p>
 
   <section class="eatery">
     <div class="eatery-head">
@@ -104,7 +102,6 @@
       <h2>Cuisine Wat Damnak</h2>
       <span class="en">Restaurant Cuisine Wat Damnak</span>
       <span class="tag">高棉菜 × 法餐</span>
-      <span class="tag">亚洲 50 最佳</span>
       <span class="arrow">▾</span>
     </div>
     <div class="eatery-body">
