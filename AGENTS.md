@@ -8,6 +8,7 @@
 - 本仓库 = 站点本体：GitHub Pages 仓库 `QRARPIKT/QRARPIKT.github.io` 的本地工作副本，线上地址 <https://qrabica.com>。
 - **站点结构（2026-10 分区改造后）**：根页 `index.html` = 极简入口页（只链接文库）；`bunko/index.html` = 文库四卡入口（长篇/短篇/习作/手记），对外分享小说一律给 `qrabica.com/bunko/`；`travel/` = 用户私密旅行记录：**任何公开页面（根页、bunko、文库各页）都禁止出现指向 travel 的链接**，travel 页一律带 `noindex` 且不回链公开区。全站面包屑统一指向 `bunko/index.html`。
   - `travel/` 内部结构：每目的地一个词条目录（现有 `travel/angkor/` 吴哥），词条页与该层列表页均用 `.home-entry` 卡片逐级下钻；`travel/angkor/museum.html` 是**自包含页面**（内联样式与脚本，不引用全站 style.css/reader.js，属约定例外）；其余图文页（如 `south-gate.html` 南门）用全站 style.css + `main.notes` 版式，图压到 ≤1600px 放对应 assets 子目录。
+  - `bars/` = 第二个私密分区（酒吧榜）：首页为 S/A/B/C/D 五级榜单（`.tier` 等级带，空级显示"虚位以待"），带内为方图小图标（源图 500px 裁方存 `bars/assets/`），点开进单店页；榜单页样式为页内联 `<style>`。单店页版式同 travel 词条页（style.css + `main.notes` + figure/figcaption），正文为人工文案，站点多写、用户给原料。同款私密规矩：公开区零链接、全页 `noindex,nofollow`、不回链公开区。
 - **写作 agent**：产出小说与配套档案，打成 zip 由用户放入 `incoming/`。写作 agent 永远不直接碰本仓库。
 - **站点 agent（你）**：收货、校验、重建网页、同步 archive、修改仓库内文件。
 - **用户**：审阅确认、执行全部 git 提交操作、拍板所有文案。
@@ -78,7 +79,7 @@ python3 scripts/build_site.py --book-dir incoming/{book-id} --site-dir . \
 4. **【】占位符**：永不写跨书对照，见到即删（带文字的变体也要查）。
 5. **手册警告叠加**：重生成 handbook 前先清页首 blockquote。
 6. **TOC 不自动更新**：章题/序号体系一变，作品页目录必须手工同步。
-7. **travel 私密分区**：`travel/` 属人工领地，脚本不碰；公开页面（根页/bunko/文库各页）永不链接它，travel 页也不回链公开区；新增同类私密分区（如日记）同样处理，且必须带 `noindex`、不写进 robots.txt（robots.txt 会公开广告路径）。
+7. **travel / bars 私密分区**：`travel/`、`bars/` 属人工领地，脚本不碰；公开页面（根页/bunko/文库各页）永不链接它们，它们也不回链公开区；新增同类私密分区（如日记）同样处理，且必须带 `noindex`、不写进 robots.txt（robots.txt 会公开广告路径）。
 
 ## 主业提醒
 

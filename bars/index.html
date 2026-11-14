@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>酒吧榜</title>
+<link rel="stylesheet" href="../assets/style.css?v=20260830-7">
+<style>
+.tier{display:flex;gap:1.6rem;align-items:flex-start;padding:1.6rem 0;border-bottom:1px solid var(--line)}
+.tier .grade{flex:none;width:2.4rem;font-size:2.2rem;line-height:1;color:var(--accent);letter-spacing:0}
+.tier .slots{display:flex;flex-wrap:wrap;gap:1.1rem}
+.bar-chip{display:block;width:6.5rem;text-align:center}
+.bar-chip img{width:6.5rem;height:6.5rem;object-fit:cover;display:block;border:1px solid var(--line)}
+.bar-chip:hover{text-decoration:none}
+.bar-chip:hover img{border-color:var(--accent-soft)}
+.bar-chip .nm{display:block;font-size:.78rem;color:var(--ink);margin-top:.45rem;letter-spacing:.03em}
+.tier .vacant{align-self:center;font-size:.78rem;color:var(--ink-soft);opacity:.55;letter-spacing:.35em}
+@media (max-width:600px){.tier{gap:1.1rem}.tier .grade{font-size:1.6rem;width:1.8rem}.bar-chip,.bar-chip img{width:5.6rem;height:5.6rem}.bar-chip .nm{font-size:.72rem}}
+</style>
+</head>
+<body>
+<main>
+  <div class="work-head">
+    <h1>酒吧榜</h1>
+    <div class="meta">喝过的酒吧，按 S/A/B/C/D 排——全凭当晚那杯酒给的印象，与榜单无关</div>
+  </div>
+
+  <div class="tier">
+    <span class="grade">S</span>
+    <span class="vacant">虚位以待</span>
+  </div>
+  <div class="tier">
+    <span class="grade">A</span>
+    <span class="vacant">虚位以待</span>
+  </div>
+  <div class="tier">
+    <span class="grade">B</span>
+    <div class="slots">
+      <a class="bar-chip" href="lennons.html">
+        <img src="assets/lennons-icon.jpg" alt="Lennon's 的黑胶墙">
+        <span class="nm">Lennon's</span>
+      </a>
+    </div>
+  </div>
+  <div class="tier">
+    <span class="grade">C</span>
+    <span class="vacant">虚位以待</span>
+  </div>
+  <div class="tier">
+    <span class="grade">D</span>
+    <span class="vacant">虚位以待</span>
+  </div>
+</main>
+</body>
+</html>
