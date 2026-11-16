@@ -7,7 +7,7 @@
 
 - 本仓库 = 站点本体：GitHub Pages 仓库 `QRARPIKT/QRARPIKT.github.io` 的本地工作副本，线上地址 <https://qrabica.com>。
 - **站点结构（2026-10 分区改造后）**：根页 `index.html` = 极简入口页（只链接文库）；`bunko/index.html` = 文库四卡入口（长篇/短篇/习作/手记），对外分享小说一律给 `qrabica.com/bunko/`；`travel/` = 用户私密旅行记录：**任何公开页面（根页、bunko、文库各页）都禁止出现指向 travel 的链接**，travel 页一律带 `noindex` 且不回链公开区。全站面包屑统一指向 `bunko/index.html`。
-  - `travel/` 内部结构：每目的地一个词条目录（现有 `travel/angkor/` 吴哥、`travel/暹罗/` 曼谷），词条页与该层列表页均用 `.home-entry` 卡片逐级下钻；`travel/angkor/museum.html` 是**自包含页面**（内联样式与脚本，不引用全站 style.css/reader.js，属约定例外）；其余图文页（如 `south-gate.html` 南门）用全站 style.css + `main.notes` 版式，图压到 ≤1600px 放对应 assets 子目录。
+  - `travel/` 内部结构：每目的地一个词条目录（现有 `travel/angkor/` 吴哥、`travel/bangkok/` 曼谷），词条页与该层列表页均用 `.home-entry` 卡片逐级下钻；`travel/angkor/museum.html` 是**自包含页面**（内联样式与脚本，不引用全站 style.css/reader.js，属约定例外）；其余图文页（如 `south-gate.html` 南门）用全站 style.css + `main.notes` 版式，图压到 ≤1600px 放对应 assets 子目录。
   - `bars/` = 第二个私密分区（酒吧榜）：首页为 S/A/B/C/D 五级榜单（`.tier` 等级带，空级显示"虚位以待"），带内为方图小图标（源图 500px 裁方存 `bars/assets/`），点开进单店页；榜单页样式为页内联 `<style>`。单店页版式同 travel 词条页（style.css + `main.notes` + figure/figcaption），正文为人工文案，站点多写、用户给原料。同款私密规矩：公开区零链接、全页 `noindex,nofollow`、不回链公开区。等级只出现在榜单首页，单店页是独立可读的酒吧体验笔记，**不出现评级/排名**；单店笔记**永不与其他酒吧比较**（铁律，跨篇也不比）。
 - **写作 agent**：产出小说与配套档案，打成 zip 由用户放入 `incoming/`。写作 agent 永远不直接碰本仓库。
 - **站点 agent（你）**：收货、校验、重建网页、同步 archive、修改仓库内文件。
